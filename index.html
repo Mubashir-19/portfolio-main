@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Mubashir Ahmed - AI Engineer & Full Stack Developer specializing in AI solutions, chatbot development, and scalable web applications. Expert in Next.js, Python, and cloud technologies.">
+    <meta name="keywords" content="AI Engineer, Full Stack Developer, Chatbot Development, Next.js, Python, Machine Learning, Web Development, Mubashir Ahmed">
+    <meta name="author" content="Mubashir Ahmed">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://mubashir.me/">
+    <meta property="og:title" content="Mubashir Ahmed - AI Engineer & Full Stack Developer">
+    <meta property="og:description" content="AI Engineer specializing in chatbot development, web applications, and cloud solutions. Building scalable AI-powered applications.">
+    <meta property="og:image" content="/images/og-image.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://mubashir.me/">
+    <meta property="twitter:title" content="Mubashir Ahmed - AI Engineer & Full Stack Developer">
+    <meta property="twitter:description" content="AI Engineer specializing in chatbot development, web applications, and cloud solutions.">
+    <meta property="twitter:image" content="/images/twitter-image.jpg">
+
+    <title>Mubashir Ahmed - AI Engineer & Full Stack Developer</title>
+    
+    <!-- Preconnect to external resources -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Mubashir Ahmed",
+        "jobTitle": "AI Engineer & Full Stack Developer",
+        "url": "https://mubashir.me",
+        "email": "ahmed.mubashir2023@gmail.com",
+        "telephone": "+92-3378063440",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Karachi",
+            "addressCountry": "Pakistan"
+        },
+        "sameAs": [
+            "https://github.com/Mubashir-19",
+            "https://www.linkedin.com/in/mubashir-ahmed"
+        ],
+        "knowsAbout": ["Artificial Intelligence", "Machine Learning", "Web Development", "Chatbot Development", "Cloud Computing"],
+        "alumniOf": {
+            "@type": "EducationalOrganization",
+            "name": "Sindh Madressatul Islam University"
+        }
+    }
+    </script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="#home" class="signature-name">Mubashir</a>
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#experience" class="nav-link">Experience</a>
+                <a href="#testimonials" class="nav-link">Testimonials</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+            <button class="nav-toggle" id="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    Hi, I'm <span class="gradient-text">Mubashir Ahmed</span>
+                </h1>
+                <p class="hero-subtitle">
+                    AI Engineer & Full Stack Developer specializing in building scalable web applications and AI solutions that bring together cutting-edge technology and real-time communication.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn btn-primary">View My Work</a>
+                    <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">50+</div>
+                        <div class="stat-label">Projects Completed</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">3+</div>
+                        <div class="stat-label">Years Experience (Since March 2022)</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">100+</div>
+                        <div class="stat-label">Happy Clients</div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-image">
+                <!-- Space for profile image -->
+                <div class="image-placeholder">
+                    <img
+                    
+                    id="hero-image-hero" src="Mub.png" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="hero-decoration"></div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">About Me</h2>
+                <p class="section-subtitle">
+                    Passionate about building AI-powered solutions that make a difference
+                </p>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>
+                        I'm a dedicated AI Engineer and Full Stack Developer with a passion for creating innovative solutions that bridge the gap between artificial intelligence and web development. Currently pursuing my Bachelor's in Computer Science at Sindh Madressatul Islam University, I've been actively developing AI-powered applications and SaaS platforms.
+                    </p>
+                    <p>
+                        My expertise spans across modern web technologies like Next.js and MERN stack, combined with advanced AI/ML frameworks including TensorFlow and PyTorch. I specialize in building chatbots, RAG pipelines, and scalable cloud solutions deployed on Azure, AWS, and Google Cloud.
+                    </p>
+                    <div class="about-highlights">
+                        <div class="highlight-item">
+                            <h4>🎯 Focus Areas</h4>
+                            <p>AI Engineering, Chatbot Development, Full Stack Web Development</p>
+                        </div>
+                        <div class="highlight-item">
+                            <h4>🌍 Location</h4>
+                            <p>Karachi, Pakistan (Remote Friendly)</p>
+                        </div>
+                        <div class="highlight-item">
+                            <h4>🎓 Education</h4>
+                            <p>Computer Science, SMIU (2021-2025)</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <!-- Space for about image -->
+                    <div class="image-placeholder">
+                        <span>About Image</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="experience">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Professional Experience</h2>
+                <p class="section-subtitle">
+                    Building scalable solutions across multiple platforms
+                </p>
+            </div>
+            <div class="experience-timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">March 2022 – Present</div>
+                    <div class="timeline-content">
+                        <h3>Web and AI Developer</h3>
+                        <h4>Fiverr (Freelance)</h4>
+                        <p>Karachi, Pakistan</p>
+                        <ul>
+                            <li>Developed SaaS applications using Next.js and MERN stack</li>
+                            <li>Built and deployed Telegram and Discord AI chatbots</li>
+                            <li>Integrated payment gateways (Cryptomus, Stripe) and custom chatbot interfaces</li>
+                            <li>Delivered scalable solutions deployed in Azure and Google Cloud</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2023 – Present</div>
+                    <div class="timeline-content">
+                        <h3>Software Engineer & AI Developer</h3>
+                        <h4>Upwork (Freelance)</h4>
+                        <p>Remote</p>
+                        <ul>
+                            <li>Developed AI solutions for fraud (rug pull) detection and smart investment insights</li>
+                            <li>Built RAG pipelines for enhanced AI capabilities</li>
+                            <li>Developed and maintained multiple SaaS Chatbot Websites with real-time features</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">What My Clients Say</h2>
+                <p class="section-subtitle">
+                    Trusted by clients worldwide for delivering exceptional AI and web development solutions
+                </p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">
+                        <span class="stars">★★★★★</span>
+                        <span class="rating-number">4.7</span>
+                    </div>
+                    <p class="testimonial-text">
+                        "Mubashir did a great job developing a functional LLM PoC, especially given my evolving requirements. He was responsive, collaborative, and delivered something that met my core needs. Would definitely recommend!"
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-info">
+                            <h4>dayoodu</h4>
+                            <p>United Kingdom • May 2024</p>
+                        </div>
+                        <div class="project-details">
+                            <span class="price">$400-$600</span>
+                            <span class="duration">4 weeks</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">
+                        <span class="stars">★★★★★</span>
+                        <span class="rating-number">5.0</span>
+                    </div>
+                    <p class="testimonial-text">
+                        "It was exceptional and working with him was really good. He has deep understanding of what to do and did everything perfectly. I'd love to work with him more and more. He's highly recommended"
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-info">
+                            <h4>kayla_brown__</h4>
+                            <p>Canada • April 2024</p>
+                        </div>
+                        <div class="project-details">
+                            <span class="price">$200-$400</span>
+                            <span class="duration">11 days</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">
+                        <span class="stars">★★★★★</span>
+                        <span class="rating-number">5.0</span>
+                    </div>
+                    <p class="testimonial-text">
+                        "Outstanding Performance from this well educated seller. He always goes above and beyond to ensure excellence in the quality of his product. I highly recommend and will hire him again."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-info">
+                            <h4>ptpremier</h4>
+                            <p>United States • December 2023</p>
+                        </div>
+                        <div class="project-details">
+                            <span class="price">$50-$100</span>
+                            <span class="duration">1 day</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">
+                        <span class="stars">★★★★★</span>
+                        <span class="rating-number">5.0</span>
+                    </div>
+                    <p class="testimonial-text">
+                        "It was great working with Mubashir. He delivered the project on time and as per the expectations."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-info">
+                            <h4>rajatsaxena835</h4>
+                            <p>India • February 2024</p>
+                        </div>
+                        <div class="project-details">
+                            <span class="price">$100-$200</span>
+                            <span class="duration">4 weeks</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">
+                        <span class="stars">★★★★★</span>
+                        <span class="rating-number">5.0</span>
+                    </div>
+                    <p class="testimonial-text">
+                        "Very good and fast as usual, will use more in future"
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-info">
+                            <h4>calleman123</h4>
+                            <p>Sweden • November 2023</p>
+                        </div>
+                        <div class="project-details">
+                            <span class="price">$100-$200</span>
+                            <span class="duration">5 days</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">
+                        <span class="stars">★★★★★</span>
+                        <span class="rating-number">5.0</span>
+                    </div>
+                    <p class="testimonial-text">
+                        "This seller has been very responsive, kind, and delivered quality work with professionalism. He's an expert and very knowledgeable about his background. I highly recommend and will hire again."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-info">
+                            <h4>ptpremier</h4>
+                            <p>United States • October 2023</p>
+                        </div>
+                        <div class="project-details">
+                            <span class="price">$100-$200</span>
+                            <span class="duration">2 weeks</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Featured Projects</h2>
+                <p class="section-subtitle">
+                    Innovative solutions combining AI, web development, and cloud technologies
+                </p>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image">
+                        <!-- Space for project image -->
+                        <div class="image-placeholder">
+                            <span>Project Image</span>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Vector DB Embeddings & Knowledge Management</h3>
+                        <p>Advanced knowledge management application utilizing vector databases for semantic search and document embeddings. Features intelligent document retrieval and context-aware responses.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Vector DB</span>
+                            <span class="tech-tag">Embeddings</span>
+                            <span class="tech-tag">Knowledge Management</span>
+                            <span class="tech-tag">Semantic Search</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link">View Project</a>
+                            <a href="#" class="project-link">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <!-- Space for project image -->
+                        <div class="image-placeholder">
+                            <span>Project Image</span>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Text-to-SQL LLAMA 3.2 3B Fine-tuned Model</h3>
+                        <p>Final Year Project: Fine-tuned LLAMA 3.2 3B model for natural language to SQL conversion. Achieved 70% ROUGE score and 75% BLEU score. Optimized for both desktop and mobile deployment.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">LLAMA 3.2 3B</span>
+                            <span class="tech-tag">Fine-tuning</span>
+                            <span class="tech-tag">Text-to-SQL</span>
+                            <span class="tech-tag">Mobile Optimization</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link">View Project</a>
+                            <a href="#" class="project-link">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <!-- Space for project image -->
+                        <div class="image-placeholder">
+                            <span>Project Image</span>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Voice Appointment Booking Agentic Pipeline</h3>
+                        <p>Intelligent voice-powered appointment booking system using OpenAI Agents SDK. Features natural language processing for seamless scheduling and calendar integration.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">OpenAI Agents SDK</span>
+                            <span class="tech-tag">Voice Recognition</span>
+                            <span class="tech-tag">Agentic AI</span>
+                            <span class="tech-tag">Calendar Integration</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link">View Project</a>
+                            <a href="#" class="project-link">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <!-- Space for project image -->
+                        <div class="image-placeholder">
+                            <span>Project Image</span>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Funnel2Tunnel: Maritime Domain Expert Chatbot</h3>
+                        <p>A sophisticated SaaS trained on 800+ maritime documents with OCR scanning and multichat capabilities. Features cost-effective context management for optimal performance.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Next.js</span>
+                            <span class="tech-tag">Langchain</span>
+                            <span class="tech-tag">Pinecone</span>
+                            <span class="tech-tag">AWS</span>
+                            <span class="tech-tag">Stripe</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link">View Project</a>
+                            <a href="#" class="project-link">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <!-- Space for project image -->
+                        <div class="image-placeholder">
+                            <span>Project Image</span>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Real-Time Token Analysis AI Chatbot</h3>
+                        <p>Advanced chatbot for fraud and rug pull detection on Solana Network with smart investment insights and risk assessment algorithms to detect scams and honeypots.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Bitquery API</span>
+                            <span class="tech-tag">Web Scraping</span>
+                            <span class="tech-tag">AI/ML</span>
+                            <span class="tech-tag">Solana</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link">View Project</a>
+                            <a href="#" class="project-link">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <!-- Space for project image -->
+                        <div class="image-placeholder">
+                            <span>Project Image</span>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Chat with SQL: Text-to-SQL AI Chatbot</h3>
+                        <p>Locally deployable solution enabling natural language interaction with PostgreSQL databases. Features cost-effective prompt engineering and conversation history management.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Gemma 3 1B</span>
+                            <span class="tech-tag">PostgreSQL</span>
+                            <span class="tech-tag">Chroma</span>
+                            <span class="tech-tag">NLP</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link">View Project</a>
+                            <a href="#" class="project-link">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <!-- Space for project image -->
+                        <div class="image-placeholder">
+                            <span>Project Image</span>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Therabot - AI Therapy Assistant</h3>
+                        <p>Fine-tuned therapy chatbot available on both web and mobile platforms, providing supportive conversations and mental health guidance.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">GPT-3.5</span>
+                            <span class="tech-tag">Web Development</span>
+                            <span class="tech-tag">Mobile Development</span>
+                            <span class="tech-tag">AI Fine-tuning</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link">View Project</a>
+                            <a href="#" class="project-link">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <!-- Space for project image -->
+                        <div class="image-placeholder">
+                            <span>Project Image</span>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Cross-Platform Blogging Application</h3>
+                        <p>Medium-like platform with full cross-platform support built using Flutter for mobile and Express.js for backend, providing seamless content creation experience.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Flutter</span>
+                            <span class="tech-tag">Express.js</span>
+                            <span class="tech-tag">MongoDB</span>
+                            <span class="tech-tag">Cross-Platform</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link">View Project</a>
+                            <a href="#" class="project-link">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <!-- Space for project image -->
+                        <div class="image-placeholder">
+                            <span>Project Image</span>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>AI Quiz Generator</h3>
+                        <p>Intelligent quiz generator that formulates quizzes on various topics using Gemini JSON API, providing educational content generation capabilities.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Gemini JSON API</span>
+                            <span class="tech-tag">AI/ML</span>
+                            <span class="tech-tag">Education Tech</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link">View Project</a>
+                            <a href="#" class="project-link">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Technical Skills</h2>
+                <p class="section-subtitle">
+                    Comprehensive expertise across multiple technologies and domains
+                </p>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Programming Languages</h3>
+                    <div class="skill-items">
+                        <span class="skill-item">JavaScript</span>
+                        <span class="skill-item">Python</span>
+                        <span class="skill-item">Dart</span>
+                        <span class="skill-item">Java</span>
+                        <span class="skill-item">C++</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Web Technologies</h3>
+                    <div class="skill-items">
+                        <span class="skill-item">React</span>
+                        <span class="skill-item">Next.js</span>
+                        <span class="skill-item">Express.js</span>
+                        <span class="skill-item">Flask</span>
+                        <span class="skill-item">HTML/CSS</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Database Systems</h3>
+                    <div class="skill-items">
+                        <span class="skill-item">MongoDB</span>
+                        <span class="skill-item">MySQL</span>
+                        <span class="skill-item">PostgreSQL</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>AI & Machine Learning</h3>
+                    <div class="skill-items">
+                        <span class="skill-item">TensorFlow</span>
+                        <span class="skill-item">PyTorch</span>
+                        <span class="skill-item">scikit-learn</span>
+                        <span class="skill-item">Pandas</span>
+                        <span class="skill-item">NumPy</span>
+                        <span class="skill-item">OpenCV</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Cloud Technologies</h3>
+                    <div class="skill-items">
+                        <span class="skill-item">Azure</span>
+                        <span class="skill-item">Google Cloud</span>
+                        <span class="skill-item">AWS</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>DevOps & Tools</h3>
+                    <div class="skill-items">
+                        <span class="skill-item">Git</span>
+                        <span class="skill-item">Docker</span>
+                        <span class="skill-item">CI/CD</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Specialized Areas</h3>
+                    <div class="skill-items">
+                        <span class="skill-item">Chatbot Development</span>
+                        <span class="skill-item">AI/ML Pipelines</span>
+                        <span class="skill-item">Web Development</span>
+                        <span class="skill-item">RAG Systems</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="education">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Education & Training</h2>
+                <p class="section-subtitle">
+                    Academic foundation and specialized training in technology
+                </p>
+            </div>
+            <div class="education-timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">2021 – June 2025</div>
+                    <div class="timeline-content">
+                        <h3>Bachelor of Science in Computer Science</h3>
+                        <h4>Sindh Madressatul Islam University (SMIU)</h4>
+                        <p>Karachi, Pakistan • GPA: 3.4</p>
+                        <ul>
+                            <li>Relevant Coursework: Data Structures, Algorithms, Machine Learning, Cloud Computing</li>
+                            <li>Focus on AI/ML applications and software engineering principles</li>
+                            <li>Active participation in tech communities and project development</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Oct 2021 – March 2022</div>
+                    <div class="timeline-content">
+                        <h3>Chatbot Development Certification</h3>
+                        <h4>Saylani Mass IT Training Program</h4>
+                        <p>Karachi, Pakistan</p>
+                        <ul>
+                            <li>Comprehensive training in server development and webhook integration</li>
+                            <li>Created chatbots for WhatsApp, Discord, Messenger, and Telegram platforms</li>
+                            <li>Implemented moderation features and custom functionalities</li>
+                            <li>Integrated payment gateway solutions directly into chatbot systems</li>
+                            <li>Gained hands-on experience with real-time communication APIs</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements Section -->
+    <section id="achievements" class="achievements">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Achievements & Certifications</h2>
+                <p class="section-subtitle">
+                    Recognition for technical excellence and continuous learning
+                </p>
+            </div>
+            <div class="achievements-grid">
+                <div class="achievement-card">
+                    <div class="achievement-icon">🏆</div>
+                    <h3>GitHub Starstruck Badge</h3>
+                    <p>Awarded for many stars in repositories</p>
+                    <span class="achievement-year">Since 2020</span>
+                </div>
+                <div class="achievement-card">
+                    <div class="achievement-icon">💻</div>
+                    <h3>LeetCode Problem Solver</h3>
+                    <p>Solved over 75+ unique DSA problems</p>
+                    <span class="achievement-year">2020</span>
+                </div>
+                <div class="achievement-card">
+                    <div class="achievement-icon">📜</div>
+                    <h3>Node.js Intermediate Certificate</h3>
+                    <p>HackerRank certification in Node.js</p>
+                    <span class="achievement-year">2021</span>
+                </div>
+                <div class="achievement-card">
+                    <div class="achievement-icon">🔗</div>
+                    <h3>GitHub Foundations</h3>
+                    <p>GitHub platform fundamentals</p>
+                    <span class="achievement-year">2024</span>
+                </div>
+                <div class="achievement-card">
+                    <div class="achievement-icon">🚀</div>
+                    <h3>JavaScript Intermediate</h3>
+                    <p>Advanced JavaScript concepts mastery</p>
+                    <span class="achievement-year">2023</span>
+                </div>
+                <div class="achievement-card">
+                    <div class="achievement-icon">🤖</div>
+                    <h3>LangChain Certification</h3>
+                    <p>Chat with Your Data - DeepLearning.AI</p>
+                    <span class="achievement-year">2023</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Let's Work Together</h2>
+                <p class="section-subtitle">
+                    Ready to bring your AI and web development ideas to life
+                </p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">📧</div>
+                        <div class="contact-details">
+                            <h4>Email</h4>
+                            <a href="mailto:ahmed.mubashir2023@gmail.com">ahmed.mubashir2023@gmail.com</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">📱</div>
+                        <div class="contact-details">
+                            <h4>Phone</h4>
+                            <a href="tel:+923378063440">+92-337-8063440</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">📍</div>
+                        <div class="contact-details">
+                            <h4>Location</h4>
+                            <p>Karachi, Pakistan</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">🌐</div>
+                        <div class="contact-details">
+                            <h4>Website</h4>
+                            <a href="https://mubashir.me" target="_blank">mubashir.me</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="contact-form">
+                        <div class="form-group">
+                            <label for="name">Name *</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject *</label>
+                            <input type="text" id="subject" name="subject" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message *</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <h3>Mubashir Ahmed</h3>
+                    <p>AI Engineer & Full Stack Developer</p>
+                    <div class="social-links">
+                        <a href="https://github.com/Mubashir-19" target="_blank" aria-label="GitHub">
+                            <span>GitHub</span>
+                        </a>
+                        <a href="https://www.linkedin.com/in/mubashir-ahmed" target="_blank" aria-label="LinkedIn">
+                            <span>LinkedIn</span>
+                        </a>
+                        <a href="mailto:ahmed.mubashir2023@gmail.com" aria-label="Email">
+                            <span>Email</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Navigation</h4>
+                        <a href="#home">Home</a>
+                        <a href="#about">About</a>
+                        <a href="#experience">Experience</a>
+                        <a href="#projects">Projects</a>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Services</h4>
+                        <a href="#contact">AI Development</a>
+                        <a href="#contact">Web Development</a>
+                        <a href="#contact">Chatbot Development</a>
+                        <a href="#contact">Consulting</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Mubashir Ahmed. All rights reserved.</p>
+                <p>Built with modern web technologies and optimized for performance.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

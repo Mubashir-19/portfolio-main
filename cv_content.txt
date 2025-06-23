@@ -1,0 +1,268 @@
+Mubashir Ahmed
++92-3378063440
+
+|
+
+mubashir.me
+
+ï Mubashir Ahmed
+
+|
+
+ahmed.mubashir2023@gmail.com
+|
+
+§ Mubashir-19
+
+Karachi, Pakistan
+
+O BJECTIVE
+Looking for a challenging role in AI Engineering where I can put my skills to work building scalable web applications
+and AI solutions. I am excited to work on projects that bring together AI, cloud technologies, and real-time
+communication.
+
+E XPERIENCE
+•
+
+Fiverr Web and AI Developer [Freelance]
+Web Developer & AI Developer
+
+•
+
+◦
+
+Developed SaaS applications using Nextjs and MERN stack.
+
+◦
+
+Developed and deployed Telegram and Discord AI chatbots
+
+◦
+
+Integrated payment gateways (Cryptomus, Stripe) and custom chatbot interfaces.
+
+◦
+
+scalable solutions deployed in Azure and Google Cloud.
+
+Upwork Web and AI Developer [Freelance]
+Software Engineer & AI Developer
+◦
+
+Developed AI solutions for fraud (rug pull) detection and smart investment insights.
+
+◦
+
+Built RAG pipelines.
+
+◦
+
+Developed and maintained multiple SaaS Chatbot Websites with real-time features.
+
+2022 – Present
+Karachi, Pakistan
+
+2023 – Present
+Remote
+
+E DUCATION
+•
+
+Sindh Madressatul Islam University (SMIU)
+Bachelor of Science in Computer Science, GPA: 3.4
+◦
+
+2021 – June 2025
+Karachi, Pakistan
+
+Relevant Coursework: Data Structures, Algorithms, Machine Learning, Cloud Computing.
+
+P ROJECTS
+•
+
+Funnel2Tunnel: Maritime Domain Expert Chatbot
+Tools: Next.js, Langchain, Pinecone, AWS, Stripe
+
+•
+
+◦
+
+Developed a SaaS trained on 800+ maritime documents.
+
+◦
+
+Integrated OCR scanning and multichat capabilities.
+
+◦
+
+Optimized cost-effective context management.
+
+Real-Time Token Analysis AI Chatbot on Solana Network
+Tools: Bitquery API, Web Scraping
+
+•
+
+◦
+
+Built a chatbot for fraud and rug pull detection and smart investment insights.
+
+◦
+
+Developed risk assessment algorithms to detect scams and honeypots.
+
+Chat with SQL: A Text-to-SQL AI Chatbot
+Tools: Gemma 3 1B, PostgreSQL, Chroma
+
+•
+
+◦
+
+Made to be locally deployable
+
+◦
+
+Developed a pipeline to enable natural language interaction with PostgreSQL.
+
+◦
+
+Implemented cost-effective prompt engineering and conversation history management.
+
+Cross-Platform Blogging Application
+Tools: Flutter, Express.js, MongoDB
+◦
+
+•
+
+•
+
+Therabot
+
+Feb 2025 – Present
+[§]
+
+2023
+[§]
+2023
+[§]
+
+Developed a fine-tuned therapy chatbot available on both web and mobile.
+
+AI Quiz Generator
+Tools: Gemini JSON API
+◦
+
+Jan 2025 – Feb 2025
+[§]
+
+Created a Medium-like platform with full cross-platform support.
+
+Tools: GPT-3.5, Web and Mobile Development
+◦
+
+Dec 2024 – Present
+[§]
+
+Created a quiz generator that formulates quizzes on various topics.
+
+2023
+[§]
+
+S KILLS
+Programming Languages: JavaScript, Python, Dart, Java, C++
+Web Technologies: React, Next.js, Express.js, Flask, HTML/CSS
+• Database Systems: MongoDB, MySQL, PostgreSQL
+• Data Science & Machine Learning: TensorFlow, PyTorch, scikit-learn, Pandas, NumPy, OpenCV
+• Cloud Technologies: Azure, Google Cloud, AWS
+• DevOps & Version Control: Git, Docker, CI/CD
+• Specialized Area: Chatbot Development, AI/ML Pipelines, Web Development
+• Research Skills: Attention to Detail, Technical Proficiency, Experimental Design, Literature Review, Statistical
+Analysis, Problem Solving
+•
+
+•
+
+H ONORS AND AWARDS
+•
+
+GitHub Starstruck Badge
+
+Since 2020
+[]
+
+GitHub
+◦
+•
+
+Awarded for many stars in repositories.
+
+LeetCode Problem Solver
+
+2020
+[]
+
+LeetCode
+◦
+•
+
+Solved over 75+ unique DSA problems.
+
+Intermediate Node.js Certificate
+
+2021
+[]
+
+HackerRank
+◦
+
+Achieved Intermediate certification in Node.js.
+
+L EADERSHIP E XPERIENCE
+•
+
+Team Lead - Chatbot Development
+Freelance Projects
+
+•
+
+◦
+
+Led a team of developers in designing scalable chatbot solutions.
+
+◦
+
+Coordinated project planning and execution, ensuring timely delivery.
+
+Mentor for Junior Developers
+Online Platforms
+◦
+
+Provided guidance on software development best practices.
+
+◦
+
+Organized coding workshops and webinars.
+
+2022 – Present
+[]
+
+2021 – Present
+[]
+
+C ERTIFICATIONS
+GitHub Foundations
+JavaScript (Intermediate)
+• LangChain Chat with Your Data - DeepLearning.AI Course
+•
+
+•
+
+A DDITIONAL I NFORMATION
+Languages: English (Fluent), Urdu (Native)
+Interests: Artificial Intelligence, Web Development, Chatbot Development, Operating Systems, Open Source
+Contribution
+
+2024
+2023
+2023
+
+

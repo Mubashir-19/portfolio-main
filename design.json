@@ -1,0 +1,244 @@
+{
+  "designSystem": {
+    "name": "Modern Portfolio Design System",
+    "version": "1.0.0",
+    "description": "A contemporary design system for creative portfolios featuring gradient backgrounds, clean typography, and modern card layouts",
+    
+    "colorPalette": {
+      "primary": {
+        "blue": "#4169E1",
+        "darkBlue": "#1E40AF",
+        "lightBlue": "#60A5FA"
+      },
+      "neutrals": {
+        "white": "#FFFFFF",
+        "lightGray": "#F8FAFC",
+        "mediumGray": "#64748B",
+        "darkGray": "#1E293B",
+        "black": "#000000"
+      },
+      "gradients": {
+        "primaryGradient": "linear-gradient(135deg, #4169E1 0%, #7C3AED 100%)",
+        "backgroundGradient": "linear-gradient(180deg, #EFF6FF 0%, #DBEAFE 100%)",
+        "accentGradient": "linear-gradient(45deg, #60A5FA 0%, #A78BFA 100%)"
+      }
+    },
+
+    "typography": {
+      "fontFamily": {
+        "primary": "Inter, -apple-system, BlinkMacSystemFont, sans-serif",
+        "secondary": "SF Pro Display, system-ui, sans-serif"
+      },
+      "fontSize": {
+        "xs": "0.75rem",
+        "sm": "0.875rem", 
+        "base": "1rem",
+        "lg": "1.125rem",
+        "xl": "1.25rem",
+        "2xl": "1.5rem",
+        "3xl": "1.875rem",
+        "4xl": "2.25rem",
+        "5xl": "3rem",
+        "6xl": "3.75rem"
+      },
+      "fontWeight": {
+        "regular": 400,
+        "medium": 500,
+        "semibold": 600,
+        "bold": 700,
+        "extrabold": 800
+      },
+      "lineHeight": {
+        "tight": 1.2,
+        "normal": 1.5,
+        "relaxed": 1.7
+      }
+    },
+
+    "spacing": {
+      "xs": "0.25rem",
+      "sm": "0.5rem",
+      "md": "1rem",
+      "lg": "1.5rem",
+      "xl": "2rem",
+      "2xl": "3rem",
+      "3xl": "4rem",
+      "4xl": "6rem",
+      "5xl": "8rem"
+    },
+
+    "borderRadius": {
+      "none": "0px",
+      "sm": "0.25rem",
+      "md": "0.375rem",
+      "lg": "0.5rem",
+      "xl": "0.75rem",
+      "2xl": "1rem",
+      "3xl": "1.5rem",
+      "full": "9999px"
+    },
+
+    "shadows": {
+      "soft": "0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)",
+      "medium": "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)",
+      "large": "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)",
+      "card": "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)"
+    },
+
+    "layout": {
+      "maxWidth": {
+        "container": "1200px",
+        "content": "800px",
+        "narrow": "600px"
+      },
+      "breakpoints": {
+        "mobile": "640px",
+        "tablet": "768px",
+        "desktop": "1024px",
+        "wide": "1280px"
+      },
+      "grid": {
+        "columns": 12,
+        "gap": "1.5rem"
+      }
+    },
+
+    "components": {
+      "hero": {
+        "structure": "Large headline + subtitle + CTA button",
+        "background": "Gradient with decorative elements",
+        "textAlignment": "left",
+        "spacing": "generous vertical padding",
+        "decorativeElements": "abstract curved lines, geometric shapes"
+      },
+      
+      "testimonialCard": {
+        "structure": "Quote + author name + profile image",
+        "background": "Semi-transparent overlay on gradient",
+        "borderRadius": "lg",
+        "padding": "xl",
+        "textColor": "white",
+        "iconography": "quotation marks"
+      },
+
+      "serviceCard": {
+        "structure": "Icon + title + description + feature list",
+        "background": "solid color or gradient",
+        "borderRadius": "xl",
+        "padding": "2xl",
+        "hover": "subtle scale transform",
+        "iconStyle": "minimalist, geometric"
+      },
+
+      "portfolioCard": {
+        "structure": "Image + title + description + CTA",
+        "imageRatio": "16:9 or square",
+        "borderRadius": "lg",
+        "shadow": "medium on hover",
+        "overlay": "dark gradient on image hover"
+      },
+
+      "navigationBar": {
+        "structure": "Logo + nav links + CTA button",
+        "background": "white with subtle shadow",
+        "position": "sticky top",
+        "padding": "md vertical, lg horizontal",
+        "links": "medium weight, hover states"
+      },
+
+      "button": {
+        "primary": {
+          "background": "blue gradient",
+          "color": "white",
+          "borderRadius": "lg",
+          "padding": "md lg",
+          "hover": "slight scale + shadow increase"
+        },
+        "secondary": {
+          "background": "transparent",
+          "border": "2px solid blue",
+          "color": "blue",
+          "hover": "fill with blue background"
+        }
+      },
+
+      "statsSection": {
+        "structure": "Large number + description",
+        "layout": "3-column grid on desktop",
+        "typography": "extra large numbers, medium descriptions",
+        "spacing": "equal spacing between items"
+      }
+    },
+
+    "patterns": {
+      "sectionLayout": {
+        "structure": "Title + optional subtitle + content grid/list",
+        "titleStyle": "large, bold, dark color",
+        "spacing": "3xl between sections",
+        "alignment": "left-aligned titles, varied content alignment"
+      },
+
+      "backgroundTreatment": {
+        "primary": "Blue gradient backgrounds for hero sections",
+        "secondary": "Light gradient or solid white for content sections",
+        "decorative": "Abstract curved elements, positioned absolutely"
+      },
+
+      "contentHierarchy": {
+        "h1": "5xl-6xl, extrabold, dark",
+        "h2": "3xl-4xl, bold, dark",
+        "h3": "xl-2xl, semibold, dark",
+        "body": "base-lg, regular, medium gray",
+        "caption": "sm, medium, light gray"
+      },
+
+      "interactionStates": {
+        "hover": "subtle scale (1.02-1.05), shadow increase, color shifts",
+        "focus": "outline with primary color, slight glow",
+        "active": "slight scale down (0.98), deeper shadow"
+      },
+
+      "imagesTreatment": {
+        "style": "high contrast, modern photography or illustrations",
+        "borderRadius": "consistent with component borders",
+        "aspectRatio": "maintain consistent ratios within sections",
+        "loading": "skeleton screens with gradient shimmer"
+      }
+    },
+
+    "animations": {
+      "duration": {
+        "fast": "150ms",
+        "normal": "300ms",
+        "slow": "500ms"
+      },
+      "easing": {
+        "default": "cubic-bezier(0.4, 0.0, 0.2, 1)",
+        "bounce": "cubic-bezier(0.68, -0.55, 0.265, 1.55)",
+        "smooth": "cubic-bezier(0.25, 0.46, 0.45, 0.94)"
+      },
+      "commonAnimations": {
+        "fadeIn": "opacity 0 to 1",
+        "slideUp": "transform translateY(20px) to 0",
+        "scaleHover": "transform scale(1) to scale(1.05)",
+        "stagger": "sequential animation with 100ms delays"
+      }
+    },
+
+    "accessibilityGuidelines": {
+      "colorContrast": "WCAG AA compliant (4.5:1 minimum)",
+      "focusStates": "visible focus indicators on all interactive elements",
+      "typography": "minimum 16px for body text",
+      "touchTargets": "minimum 44px for mobile interactions",
+      "altText": "descriptive alternative text for all images"
+    },
+
+    "responsiveStrategy": {
+      "approach": "mobile-first responsive design",
+      "gridBehavior": "stacked on mobile, multi-column on tablet+",
+      "typographyScaling": "fluid typography using clamp()",
+      "imageHandling": "responsive images with srcset",
+      "navigationPattern": "hamburger menu on mobile, horizontal on desktop"
+    }
+  }
+}
