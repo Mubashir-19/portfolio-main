@@ -1,4 +1,9 @@
 // Portfolio JavaScript - Enhanced with modern features and SEO optimizations
+document.querySelector('a[href="#home"]').addEventListener("click", (e) => {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+  
 
 class PortfolioApp {
     constructor() {
@@ -37,7 +42,7 @@ class PortfolioApp {
         this.updateCopyrightYear();
         this.initializeScrollToTop();
         this.preloadCriticalImages();
-        
+
         // Add loading complete class
         document.body.classList.add('loaded');
     }
@@ -53,12 +58,12 @@ class PortfolioApp {
             navToggle.addEventListener('click', () => {
                 navMenu.classList.toggle('active');
                 navToggle.classList.toggle('active');
-                
+
                 // Update ARIA attributes for accessibility
                 const isOpen = navMenu.classList.contains('active');
                 navToggle.setAttribute('aria-expanded', isOpen);
                 navMenu.setAttribute('aria-hidden', !isOpen);
-                
+
                 // Prevent body scroll when menu is open
                 document.body.style.overflow = isOpen ? 'hidden' : '';
             });
@@ -70,20 +75,29 @@ class PortfolioApp {
                 e.preventDefault();
                 const targetId = link.getAttribute('href');
                 const targetElement = document.querySelector(targetId);
-                
+
                 if (targetElement) {
-                    const offsetTop = targetElement.offsetTop - 80; // Account for fixed navbar
-                    
+                    let offsetTop;
+
+                    // Special handling for Home button - scroll to very top
+                    if (targetId === '#home') {
+                        offsetTop = 0;
+                    } else {
+                        offsetTop = targetElement.offsetTop - 80; // Account for fixed navbar
+                    }
+
                     window.scrollTo({
                         top: offsetTop,
                         behavior: 'smooth'
                     });
-                    
+
                     // Close mobile menu if open
-                    navMenu.classList.remove('active');
-                    navToggle.classList.remove('active');
-                    document.body.style.overflow = '';
-                    
+                    if (navMenu) {
+                        navMenu.classList.remove('active');
+                        navToggle.classList.remove('active');
+                        document.body.style.overflow = '';
+                    }
+
                     // Update URL without triggering navigation
                     history.pushState(null, '', targetId);
                 }
@@ -145,14 +159,14 @@ class PortfolioApp {
     updateActiveNavLink() {
         const sections = document.querySelectorAll('section[id]');
         const navLinks = document.querySelectorAll('.nav-link');
-        
+
         let currentSection = '';
 
         sections.forEach(section => {
             const sectionTop = section.offsetTop - 100;
             const sectionHeight = section.clientHeight;
-            
-            if (window.pageYOffset >= sectionTop && 
+
+            if (window.pageYOffset >= sectionTop &&
                 window.pageYOffset < sectionTop + sectionHeight) {
                 currentSection = section.getAttribute('id');
             }
@@ -178,7 +192,7 @@ class PortfolioApp {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('animate-in');
-                    
+
                     // Add staggered animation for child elements
                     const children = entry.target.querySelectorAll('[data-animate]');
                     children.forEach((child, index) => {
@@ -201,7 +215,7 @@ class PortfolioApp {
     triggerScrollAnimations() {
         // Additional scroll-based animations can be added here
         const scrollProgress = window.pageYOffset / (document.documentElement.scrollHeight - window.innerHeight);
-        
+
         // Update any progress indicators
         const progressBars = document.querySelectorAll('.progress-bar');
         progressBars.forEach(bar => {
@@ -212,10 +226,10 @@ class PortfolioApp {
     // Contact form functionality
     initializeContactForm() {
         const contactForm = document.getElementById('contact-form');
-        
+
         if (contactForm) {
             contactForm.addEventListener('submit', this.handleContactFormSubmit.bind(this));
-            
+
             // Add real-time validation
             const inputs = contactForm.querySelectorAll('input, textarea');
             inputs.forEach(input => {
@@ -227,11 +241,11 @@ class PortfolioApp {
 
     async handleContactFormSubmit(e) {
         e.preventDefault();
-        
+
         const form = e.target;
         const formData = new FormData(form);
         const submitButton = form.querySelector('button[type="submit"]');
-        
+
         // Validate form
         if (!this.validateForm(form)) {
             return;
@@ -246,11 +260,11 @@ class PortfolioApp {
             // Here you would typically send the form data to your backend
             // For now, we'll simulate the process
             await this.simulateFormSubmission(formData);
-            
+
             // Show success message
             this.showNotification('Message sent successfully! I\'ll get back to you soon.', 'success');
             form.reset();
-            
+
         } catch (error) {
             console.error('Form submission error:', error);
             this.showNotification('Sorry, there was an error sending your message. Please try again.', 'error');
@@ -305,7 +319,7 @@ class PortfolioApp {
 
     setFieldValidation(field, isValid, errorMessage) {
         const existingError = field.parentNode.querySelector('.field-error');
-        
+
         if (existingError) {
             existingError.remove();
         }
@@ -352,7 +366,7 @@ class PortfolioApp {
         const notification = document.createElement('div');
         notification.className = `notification notification-${type}`;
         notification.textContent = message;
-        
+
         // Style the notification
         Object.assign(notification.style, {
             position: 'fixed',
@@ -414,7 +428,7 @@ class PortfolioApp {
     initializePerformanceOptimizations() {
         // Preload critical resources
         this.preloadCriticalResources();
-        
+
         // Initialize service worker if available
         if ('serviceWorker' in navigator) {
             this.registerServiceWorker();
@@ -464,7 +478,7 @@ class PortfolioApp {
                     }
                 });
             });
-            
+
             observer.observe({ entryTypes: ['largest-contentful-paint'] });
         }
     }
@@ -476,7 +490,7 @@ class PortfolioApp {
         scrollToTopBtn.innerHTML = '↑';
         scrollToTopBtn.className = 'scroll-to-top';
         scrollToTopBtn.setAttribute('aria-label', 'Scroll to top');
-        
+
         Object.assign(scrollToTopBtn.style, {
             position: 'fixed',
             bottom: '30px',
@@ -530,12 +544,12 @@ class PortfolioApp {
         // Handle responsive adjustments
         const mobileBreakpoint = 768;
         const isMobile = window.innerWidth < mobileBreakpoint;
-        
+
         // Close mobile menu on resize to desktop
         if (!isMobile) {
             const navMenu = document.getElementById('nav-menu');
             const navToggle = document.getElementById('nav-toggle');
-            
+
             if (navMenu && navToggle) {
                 navMenu.classList.remove('active');
                 navToggle.classList.remove('active');
@@ -547,7 +561,7 @@ class PortfolioApp {
     // Utility functions for performance
     throttle(func, limit) {
         let inThrottle;
-        return function() {
+        return function () {
             const args = arguments;
             const context = this;
             if (!inThrottle) {
@@ -568,6 +582,478 @@ class PortfolioApp {
             clearTimeout(timeout);
             timeout = setTimeout(later, wait);
         };
+    }
+}
+
+// Enhanced Horizontal Slider System with Auto-scrolling
+class HorizontalSlider {
+    constructor() {
+        this.sliders = {};
+        this.autoScrollIntervals = {};
+        console.log('HorizontalSlider constructor called');
+        this.init();
+    }
+
+    init() {
+        console.log('HorizontalSlider init called');
+        this.initializeSliders();
+        this.setupEventListeners();
+        this.startAutoScroll();
+    }
+
+    initializeSliders() {
+        console.log('Initializing sliders...');
+        // Initialize testimonials slider
+        this.initializeSlider('testimonials', '.testimonials-slider', '.testimonial-card');
+
+        // Initialize projects slider
+        this.initializeSlider('projects', '.projects-slider', '.project-card');
+
+        // Initialize achievements slider
+        this.initializeSlider('achievements', '.achievements-slider', '.achievement-card');
+
+        console.log('All sliders initialized:', Object.keys(this.sliders));
+    }
+
+    initializeSlider(name, sliderSelector, cardSelector) {
+        console.log(`Initializing ${name} slider...`);
+
+        const slider = document.querySelector(sliderSelector);
+        const cards = document.querySelectorAll(`${sliderSelector} ${cardSelector}`);
+        const container = slider ? slider.closest('.slider-container') : null;
+        const dotsContainer = document.querySelector(`.slider-controls .slider-dots[data-slider="${name}"]`);
+        const prevBtn = document.querySelector(`.slider-controls .prev-btn[data-slider="${name}"]`);
+        const nextBtn = document.querySelector(`.slider-controls .next-btn[data-slider="${name}"]`);
+
+        console.log(`${name} slider elements:`, {
+            slider: !!slider,
+            cards: cards.length,
+            container: !!container,
+            dotsContainer: !!dotsContainer,
+            prevBtn: !!prevBtn,
+            nextBtn: !!nextBtn
+        });
+
+        if (!slider || !cards.length) {
+            console.warn(`${name} slider: Missing required elements`);
+            return;
+        }
+
+        // Calculate how many cards to show at once based on container width
+        const containerWidth = container ? container.offsetWidth - 64 : slider.parentElement.offsetWidth - 64;
+        const cardWidth = cards[0].offsetWidth;
+        const gap = 32;
+        const cardsPerView = Math.max(1, Math.floor((containerWidth + gap) / (cardWidth + gap)));
+
+        console.log(`${name} slider calculations:`, {
+            containerWidth,
+            cardWidth,
+            gap,
+            cardsPerView,
+            totalCards: cards.length
+        });
+
+        this.sliders[name] = {
+            slider,
+            cards,
+            container,
+            dotsContainer,
+            prevBtn,
+            nextBtn,
+            currentIndex: 0,
+            cardsPerView,
+            totalCards: cards.length,
+            maxIndex: Math.max(0, cards.length - cardsPerView),
+            isUserInteracting: false,
+            autoScrollDirection: 1
+        };
+
+        // Create dots
+        this.createDots(name);
+
+        // Update initial state
+        this.updateSlider(name);
+        this.updateControls(name);
+
+        // Add hover pause functionality
+        this.setupHoverPause(name);
+
+        console.log(`${name} slider initialized successfully`);
+    }
+
+    createDots(name) {
+        const sliderData = this.sliders[name];
+        if (!sliderData.dotsContainer) {
+            console.warn(`${name}: No dots container found`);
+            return;
+        }
+
+        sliderData.dotsContainer.innerHTML = '';
+
+        const totalDots = Math.max(1, sliderData.maxIndex + 1);
+        console.log(`Creating ${totalDots} dots for ${name}`);
+
+        for (let i = 0; i < totalDots; i++) {
+            const dot = document.createElement('button');
+            dot.className = 'slider-dot';
+            dot.setAttribute('data-index', i);
+            dot.setAttribute('aria-label', `Go to slide ${i + 1}`);
+            if (i === 0) dot.classList.add('active');
+
+            dot.addEventListener('click', () => {
+                console.log(`${name}: Dot ${i} clicked`);
+                this.pauseAutoScroll(name);
+                sliderData.currentIndex = i;
+                this.updateSlider(name);
+                this.updateControls(name);
+                this.resumeAutoScrollAfterDelay(name);
+            });
+
+            sliderData.dotsContainer.appendChild(dot);
+        }
+    }
+
+    setupEventListeners() {
+        console.log('Setting up event listeners...');
+
+        // Set up button event listeners
+        Object.keys(this.sliders).forEach(name => {
+            const sliderData = this.sliders[name];
+
+            if (sliderData.prevBtn) {
+                console.log(`Adding click listener to ${name} prev button`);
+                sliderData.prevBtn.addEventListener('click', (e) => {
+                    console.log(`${name}: Previous button clicked`);
+                    e.preventDefault();
+                    this.pauseAutoScroll(name);
+                    this.previousSlide(name);
+                    this.resumeAutoScrollAfterDelay(name);
+                });
+            } else {
+                console.warn(`${name}: No prev button found`);
+            }
+
+            if (sliderData.nextBtn) {
+                console.log(`Adding click listener to ${name} next button`);
+                sliderData.nextBtn.addEventListener('click', (e) => {
+                    console.log(`${name}: Next button clicked`);
+                    e.preventDefault();
+                    this.pauseAutoScroll(name);
+                    this.nextSlide(name);
+                    this.resumeAutoScrollAfterDelay(name);
+                });
+            } else {
+                console.warn(`${name}: No next button found`);
+            }
+        });
+
+        // Handle window resize
+        window.addEventListener('resize', this.debounce(() => {
+            this.handleResize();
+        }, 250));
+
+        // Add touch/swipe support
+        this.addTouchSupport();
+
+        // Add intersection observer for auto-scroll optimization
+        this.setupIntersectionObserver();
+
+        console.log('Event listeners setup complete');
+    }
+
+    setupHoverPause(name) {
+        const sliderData = this.sliders[name];
+
+        // Pause auto-scroll on hover
+        sliderData.container.addEventListener('mouseenter', () => {
+            this.pauseAutoScroll(name);
+            sliderData.container.classList.remove('auto-scrolling');
+        });
+
+        sliderData.container.addEventListener('mouseleave', () => {
+            this.resumeAutoScroll(name);
+            sliderData.container.classList.add('auto-scrolling');
+        });
+    }
+
+    setupIntersectionObserver() {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                const sliderName = this.getSliderNameFromElement(entry.target);
+                if (sliderName) {
+                    if (entry.isIntersecting) {
+                        this.resumeAutoScroll(sliderName);
+                        entry.target.classList.add('auto-scrolling');
+                    } else {
+                        this.pauseAutoScroll(sliderName);
+                        entry.target.classList.remove('auto-scrolling');
+                    }
+                }
+            });
+        }, {
+            threshold: 0.3,
+            rootMargin: '0px 0px -10% 0px'
+        });
+
+        Object.keys(this.sliders).forEach(name => {
+            const container = this.sliders[name].container;
+            if (container) {
+                observer.observe(container);
+            }
+        });
+    }
+
+    getSliderNameFromElement(element) {
+        if (element.querySelector('.testimonials-slider')) return 'testimonials';
+        if (element.querySelector('.projects-slider')) return 'projects';
+        if (element.querySelector('.achievements-slider')) return 'achievements';
+        return null;
+    }
+
+    startAutoScroll() {
+        Object.keys(this.sliders).forEach(name => {
+            this.resumeAutoScroll(name);
+        });
+    }
+
+    pauseAutoScroll(name) {
+        if (this.autoScrollIntervals[name]) {
+            clearInterval(this.autoScrollIntervals[name]);
+            this.autoScrollIntervals[name] = null;
+        }
+    }
+
+    resumeAutoScroll(name) {
+        this.pauseAutoScroll(name); // Clear any existing interval
+
+        const sliderData = this.sliders[name];
+        if (!sliderData || sliderData.maxIndex <= 0) return;
+
+        this.autoScrollIntervals[name] = setInterval(() => {
+            if (!sliderData.isUserInteracting) {
+                this.autoSlide(name);
+            }
+        }, 4000); // 4 seconds interval
+    }
+
+    resumeAutoScrollAfterDelay(name, delay = 3000) {
+        setTimeout(() => {
+            this.resumeAutoScroll(name);
+        }, delay);
+    }
+
+    autoSlide(name) {
+        const sliderData = this.sliders[name];
+
+        if (sliderData.autoScrollDirection === 1) {
+            // Moving forward
+            if (sliderData.currentIndex >= sliderData.maxIndex) {
+                // Reached end, reverse direction
+                sliderData.autoScrollDirection = -1;
+                this.previousSlide(name);
+            } else {
+                this.nextSlide(name);
+            }
+        } else {
+            // Moving backward
+            if (sliderData.currentIndex <= 0) {
+                // Reached beginning, reverse direction
+                sliderData.autoScrollDirection = 1;
+                this.nextSlide(name);
+            } else {
+                this.previousSlide(name);
+            }
+        }
+    }
+
+    previousSlide(name) {
+        const sliderData = this.sliders[name];
+        if (sliderData.currentIndex > 0) {
+            sliderData.currentIndex--;
+            this.updateSlider(name);
+            this.updateControls(name);
+            console.log(`${name}: Moved to slide ${sliderData.currentIndex}`);
+        }
+    }
+
+    nextSlide(name) {
+        const sliderData = this.sliders[name];
+        if (sliderData.currentIndex < sliderData.maxIndex) {
+            sliderData.currentIndex++;
+            this.updateSlider(name);
+            this.updateControls(name);
+            console.log(`${name}: Moved to slide ${sliderData.currentIndex}`);
+        }
+    }
+
+    updateSlider(name) {
+        const sliderData = this.sliders[name];
+        const cardWidth = sliderData.cards[0].offsetWidth;
+        const gap = 32; // var(--space-xl)
+        const translateX = -(sliderData.currentIndex * (cardWidth + gap));
+
+        sliderData.slider.style.transform = `translateX(${translateX}px)`;
+
+        // Update dots
+        if (sliderData.dotsContainer) {
+            const dots = sliderData.dotsContainer.querySelectorAll('.slider-dot');
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === sliderData.currentIndex);
+            });
+        }
+
+        // Add smooth animation
+        sliderData.slider.style.transition = 'transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+    }
+
+    updateControls(name) {
+        const sliderData = this.sliders[name];
+
+        if (sliderData.prevBtn) {
+            sliderData.prevBtn.disabled = sliderData.currentIndex === 0;
+            sliderData.prevBtn.style.opacity = sliderData.currentIndex === 0 ? '0.4' : '1';
+        }
+
+        if (sliderData.nextBtn) {
+            sliderData.nextBtn.disabled = sliderData.currentIndex >= sliderData.maxIndex;
+            sliderData.nextBtn.style.opacity = sliderData.currentIndex >= sliderData.maxIndex ? '0.4' : '1';
+        }
+    }
+
+    handleResize() {
+        // Pause all auto-scrolling during resize
+        Object.keys(this.sliders).forEach(name => {
+            this.pauseAutoScroll(name);
+        });
+
+        // Recalculate slider parameters on resize
+        Object.keys(this.sliders).forEach(name => {
+            const sliderData = this.sliders[name];
+            const containerWidth = sliderData.container ?
+                sliderData.container.offsetWidth - 64 :
+                sliderData.slider.parentElement.offsetWidth - 64;
+            const cardWidth = sliderData.cards[0].offsetWidth;
+            const gap = 32;
+            const newCardsPerView = Math.max(1, Math.floor((containerWidth + gap) / (cardWidth + gap)));
+            const newMaxIndex = Math.max(0, sliderData.totalCards - newCardsPerView);
+
+            sliderData.cardsPerView = newCardsPerView;
+            sliderData.maxIndex = newMaxIndex;
+
+            // Adjust current index if needed
+            if (sliderData.currentIndex > newMaxIndex) {
+                sliderData.currentIndex = newMaxIndex;
+            }
+
+            // Recreate dots and update
+            this.createDots(name);
+            this.updateSlider(name);
+            this.updateControls(name);
+        });
+
+        // Resume auto-scrolling after resize
+        setTimeout(() => {
+            Object.keys(this.sliders).forEach(name => {
+                this.resumeAutoScroll(name);
+            });
+        }, 500);
+    }
+
+    addTouchSupport() {
+        Object.keys(this.sliders).forEach(name => {
+            const sliderData = this.sliders[name];
+            let startX = 0;
+            let currentX = 0;
+            let isDragging = false;
+
+            sliderData.slider.addEventListener('touchstart', (e) => {
+                startX = e.touches[0].clientX;
+                isDragging = true;
+                sliderData.isUserInteracting = true;
+                this.pauseAutoScroll(name);
+            }, { passive: true });
+
+            sliderData.slider.addEventListener('touchmove', (e) => {
+                if (!isDragging) return;
+                currentX = e.touches[0].clientX;
+
+                // Optional: Add visual feedback during drag
+                const diffX = startX - currentX;
+                const currentTransform = sliderData.slider.style.transform.match(/translateX\(([^)]+)\)/);
+                const currentTranslateX = currentTransform ? parseFloat(currentTransform[1]) : 0;
+
+                // Apply drag effect with resistance
+                const dragResistance = 0.3;
+                sliderData.slider.style.transform = `translateX(${currentTranslateX - (diffX * dragResistance)}px)`;
+                sliderData.slider.style.transition = 'none';
+            }, { passive: true });
+
+            sliderData.slider.addEventListener('touchend', () => {
+                if (!isDragging) return;
+
+                const diffX = startX - currentX;
+                const threshold = 50; // Minimum swipe distance
+
+                if (Math.abs(diffX) > threshold) {
+                    if (diffX > 0 && sliderData.currentIndex < sliderData.maxIndex) {
+                        // Swipe left - next slide
+                        this.nextSlide(name);
+                    } else if (diffX < 0 && sliderData.currentIndex > 0) {
+                        // Swipe right - previous slide
+                        this.previousSlide(name);
+                    } else {
+                        // Restore original position
+                        this.updateSlider(name);
+                    }
+                } else {
+                    // Restore original position
+                    this.updateSlider(name);
+                }
+
+                isDragging = false;
+                sliderData.isUserInteracting = false;
+                this.resumeAutoScrollAfterDelay(name, 2000);
+            }, { passive: true });
+
+            // Set initial cursor
+            sliderData.slider.style.cursor = 'grab';
+        });
+    }
+
+    // Utility function
+    debounce(func, wait) {
+        let timeout;
+        return function executedFunction(...args) {
+            const later = () => {
+                clearTimeout(timeout);
+                func(...args);
+            };
+            clearTimeout(timeout);
+            timeout = setTimeout(later, wait);
+        };
+    }
+
+    // Public method to pause all sliders
+    pauseAllSliders() {
+        Object.keys(this.sliders).forEach(name => {
+            this.pauseAutoScroll(name);
+        });
+    }
+
+    // Public method to resume all sliders
+    resumeAllSliders() {
+        Object.keys(this.sliders).forEach(name => {
+            this.resumeAutoScroll(name);
+        });
+    }
+
+    // Cleanup method
+    destroy() {
+        Object.keys(this.autoScrollIntervals).forEach(name => {
+            this.pauseAutoScroll(name);
+        });
+        this.sliders = {};
+        this.autoScrollIntervals = {};
     }
 }
 
@@ -615,7 +1101,7 @@ class SEOEnhancements {
         const updateOGTags = (title, description) => {
             let ogTitle = document.querySelector('meta[property="og:title"]');
             let ogDesc = document.querySelector('meta[property="og:description"]');
-            
+
             if (ogTitle) ogTitle.content = title;
             if (ogDesc) ogDesc.content = description;
         };
@@ -623,7 +1109,7 @@ class SEOEnhancements {
         // This could be called when navigating between sections
         window.addEventListener('hashchange', () => {
             const hash = window.location.hash;
-            switch(hash) {
+            switch (hash) {
                 case '#projects':
                     updateOGTags(
                         'Projects - Mubashir Ahmed',
@@ -646,7 +1132,7 @@ class SEOEnhancements {
         skipLink.href = '#main-content';
         skipLink.textContent = 'Skip to main content';
         skipLink.className = 'skip-link';
-        
+
         Object.assign(skipLink.style, {
             position: 'absolute',
             top: '-40px',
@@ -677,11 +1163,60 @@ class SEOEnhancements {
     }
 }
 
-// // Initialize the application
-// const portfolioApp = new PortfolioApp();
-// const seoEnhancements = new SEOEnhancements();
+// Years Experience Calculator
+class YearsExperienceCalculator {
+    constructor() {
+        this.startDate = new Date('2022-03-01'); // March 2022
+        this.init();
+    }
 
-// // Export for potential module usage
-// if (typeof module !== 'undefined' && module.exports) {
-//     module.exports = { PortfolioApp, SEOEnhancements };
-// }
+    init() {
+        this.calculateAndUpdateYears();
+    }
+
+    calculateAndUpdateYears() {
+        const currentDate = new Date();
+        const yearsExperience = this.calculateYearsDifference(this.startDate, currentDate);
+
+        const yearsElement = document.getElementById('years-experience');
+        if (yearsElement) {
+            yearsElement.textContent = `${yearsExperience}+`;
+        }
+    }
+
+    calculateYearsDifference(startDate, endDate) {
+        const years = endDate.getFullYear() - startDate.getFullYear();
+        const monthDiff = endDate.getMonth() - startDate.getMonth();
+        const dayDiff = endDate.getDate() - startDate.getDate();
+
+        // If we haven't reached the anniversary month/day, subtract a year
+        if (monthDiff < 0 || (monthDiff === 0 && dayDiff < 0)) {
+            return Math.max(1, years - 1); // Ensure minimum 1 year
+        }
+
+        return Math.max(1, years); // Ensure minimum 1 year
+    }
+}
+
+// Initialize the application when DOM is ready
+document.addEventListener('DOMContentLoaded', () => {
+    console.log('DOM Content Loaded - Starting initialization');
+
+    // Initialize all systems
+    const portfolioApp = new PortfolioApp();
+    const seoEnhancements = new SEOEnhancements();
+    const yearsCalculator = new YearsExperienceCalculator();
+
+    // Initialize slider after a short delay to ensure DOM is fully rendered
+    setTimeout(() => {
+        const horizontalSlider = new HorizontalSlider();
+        // Add global reference for debugging/external control
+        window.portfolioSliders = horizontalSlider;
+        console.log('Portfolio initialized with enhanced auto-scrolling sliders');
+    }, 100);
+});
+
+// Export for potential module usage
+if (typeof module !== 'undefined' && module.exports) {
+    module.exports = { PortfolioApp, SEOEnhancements, YearsExperienceCalculator, HorizontalSlider };
+}
