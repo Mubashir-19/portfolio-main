@@ -67,10 +67,10 @@
     <nav class="navbar" id="navbar">
         <div class="nav-container">
             <div class="nav-logo">
-                <a href="#home" class="signature-name">Mubashir</a>
+                <a href="#home" onclick="event.preventDefault();window.scrollTo({ top: 0, behavior: 'smooth' });"  class="signature-name">Mubashir</a>
             </div>
             <div class="nav-menu" id="nav-menu">
-                <a href="#home" class="nav-link">Home</a>
+                <a href="#home" onclick="event.preventDefault();window.scrollTo({ top: 0, behavior: 'smooth' });" class="nav-link">Home</a>
                 <a href="#about" class="nav-link">About</a>
                 <a href="#experience" class="nav-link">Experience</a>
                 <a href="#testimonials" class="nav-link">Testimonials</a>
@@ -106,8 +106,8 @@
                         <div class="stat-label">Projects Completed</div>
                     </div>
                     <div class="stat-item">
-                        <div class="stat-number">3+</div>
-                        <div class="stat-label">Years Experience (Since March 2022)</div>
+                        <div class="stat-number" id="years-experience">3+</div>
+                        <div class="stat-label">Years Experience</div>
                     </div>
                     <div class="stat-item">
                         <div class="stat-number">100+</div>
@@ -219,125 +219,132 @@
                     Trusted by clients worldwide for delivering exceptional AI and web development solutions
                 </p>
             </div>
-            <div class="testimonials-grid">
-                <div class="testimonial-card">
-                    <div class="testimonial-rating">
-                        <span class="stars">★★★★★</span>
-                        <span class="rating-number">4.7</span>
-                    </div>
-                    <p class="testimonial-text">
-                        "Mubashir did a great job developing a functional LLM PoC, especially given my evolving requirements. He was responsive, collaborative, and delivered something that met my core needs. Would definitely recommend!"
-                    </p>
-                    <div class="testimonial-author">
-                        <div class="author-info">
-                            <h4>dayoodu</h4>
-                            <p>United Kingdom • May 2024</p>
+            <div class="slider-container">
+                <div class="testimonials-slider">
+                    <div class="testimonial-card">
+                        <div class="testimonial-rating">
+                            <span class="stars">★★★★★</span>
+                            <span class="rating-number">4.7</span>
                         </div>
-                        <div class="project-details">
-                            <span class="price">$400-$600</span>
-                            <span class="duration">4 weeks</span>
+                        <p class="testimonial-text">
+                            "Mubashir did a great job developing a functional LLM PoC, especially given my evolving requirements. He was responsive, collaborative, and delivered something that met my core needs. Would definitely recommend!"
+                        </p>
+                        <div class="testimonial-author">
+                            <div class="author-info">
+                                <h4>dayoodu</h4>
+                                <p>United Kingdom • May 2024</p>
+                            </div>
+                            <div class="project-details">
+                                <span class="price">$400-$600</span>
+                                <span class="duration">4 weeks</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="testimonial-rating">
+                            <span class="stars">★★★★★</span>
+                            <span class="rating-number">5.0</span>
+                        </div>
+                        <p class="testimonial-text">
+                            "It was exceptional and working with him was really good. He has deep understanding of what to do and did everything perfectly. I'd love to work with him more and more. He's highly recommended"
+                        </p>
+                        <div class="testimonial-author">
+                            <div class="author-info">
+                                <h4>kayla_brown__</h4>
+                                <p>Canada • April 2024</p>
+                            </div>
+                            <div class="project-details">
+                                <span class="price">$200-$400</span>
+                                <span class="duration">11 days</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="testimonial-rating">
+                            <span class="stars">★★★★★</span>
+                            <span class="rating-number">5.0</span>
+                        </div>
+                        <p class="testimonial-text">
+                            "Outstanding Performance from this well educated seller. He always goes above and beyond to ensure excellence in the quality of his product. I highly recommend and will hire him again."
+                        </p>
+                        <div class="testimonial-author">
+                            <div class="author-info">
+                                <h4>ptpremier</h4>
+                                <p>United States • December 2023</p>
+                            </div>
+                            <div class="project-details">
+                                <span class="price">$50-$100</span>
+                                <span class="duration">1 day</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="testimonial-rating">
+                            <span class="stars">★★★★★</span>
+                            <span class="rating-number">5.0</span>
+                        </div>
+                        <p class="testimonial-text">
+                            "It was great working with Mubashir. He delivered the project on time and as per the expectations."
+                        </p>
+                        <div class="testimonial-author">
+                            <div class="author-info">
+                                <h4>rajatsaxena835</h4>
+                                <p>India • February 2024</p>
+                            </div>
+                            <div class="project-details">
+                                <span class="price">$100-$200</span>
+                                <span class="duration">4 weeks</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="testimonial-rating">
+                            <span class="stars">★★★★★</span>
+                            <span class="rating-number">5.0</span>
+                        </div>
+                        <p class="testimonial-text">
+                            "Very good and fast as usual, will use more in future"
+                        </p>
+                        <div class="testimonial-author">
+                            <div class="author-info">
+                                <h4>calleman123</h4>
+                                <p>Sweden • November 2023</p>
+                            </div>
+                            <div class="project-details">
+                                <span class="price">$100-$200</span>
+                                <span class="duration">5 days</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="testimonial-rating">
+                            <span class="stars">★★★★★</span>
+                            <span class="rating-number">5.0</span>
+                        </div>
+                        <p class="testimonial-text">
+                            "This seller has been very responsive, kind, and delivered quality work with professionalism. He's an expert and very knowledgeable about his background. I highly recommend and will hire again."
+                        </p>
+                        <div class="testimonial-author">
+                            <div class="author-info">
+                                <h4>ptpremier</h4>
+                                <p>United States • October 2023</p>
+                            </div>
+                            <div class="project-details">
+                                <span class="price">$100-$200</span>
+                                <span class="duration">2 weeks</span>
+                            </div>
                         </div>
                     </div>
                 </div>
-
-                <div class="testimonial-card">
-                    <div class="testimonial-rating">
-                        <span class="stars">★★★★★</span>
-                        <span class="rating-number">5.0</span>
-                    </div>
-                    <p class="testimonial-text">
-                        "It was exceptional and working with him was really good. He has deep understanding of what to do and did everything perfectly. I'd love to work with him more and more. He's highly recommended"
-                    </p>
-                    <div class="testimonial-author">
-                        <div class="author-info">
-                            <h4>kayla_brown__</h4>
-                            <p>Canada • April 2024</p>
-                        </div>
-                        <div class="project-details">
-                            <span class="price">$200-$400</span>
-                            <span class="duration">11 days</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="testimonial-card">
-                    <div class="testimonial-rating">
-                        <span class="stars">★★★★★</span>
-                        <span class="rating-number">5.0</span>
-                    </div>
-                    <p class="testimonial-text">
-                        "Outstanding Performance from this well educated seller. He always goes above and beyond to ensure excellence in the quality of his product. I highly recommend and will hire him again."
-                    </p>
-                    <div class="testimonial-author">
-                        <div class="author-info">
-                            <h4>ptpremier</h4>
-                            <p>United States • December 2023</p>
-                        </div>
-                        <div class="project-details">
-                            <span class="price">$50-$100</span>
-                            <span class="duration">1 day</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="testimonial-card">
-                    <div class="testimonial-rating">
-                        <span class="stars">★★★★★</span>
-                        <span class="rating-number">5.0</span>
-                    </div>
-                    <p class="testimonial-text">
-                        "It was great working with Mubashir. He delivered the project on time and as per the expectations."
-                    </p>
-                    <div class="testimonial-author">
-                        <div class="author-info">
-                            <h4>rajatsaxena835</h4>
-                            <p>India • February 2024</p>
-                        </div>
-                        <div class="project-details">
-                            <span class="price">$100-$200</span>
-                            <span class="duration">4 weeks</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="testimonial-card">
-                    <div class="testimonial-rating">
-                        <span class="stars">★★★★★</span>
-                        <span class="rating-number">5.0</span>
-                    </div>
-                    <p class="testimonial-text">
-                        "Very good and fast as usual, will use more in future"
-                    </p>
-                    <div class="testimonial-author">
-                        <div class="author-info">
-                            <h4>calleman123</h4>
-                            <p>Sweden • November 2023</p>
-                        </div>
-                        <div class="project-details">
-                            <span class="price">$100-$200</span>
-                            <span class="duration">5 days</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="testimonial-card">
-                    <div class="testimonial-rating">
-                        <span class="stars">★★★★★</span>
-                        <span class="rating-number">5.0</span>
-                    </div>
-                    <p class="testimonial-text">
-                        "This seller has been very responsive, kind, and delivered quality work with professionalism. He's an expert and very knowledgeable about his background. I highly recommend and will hire again."
-                    </p>
-                    <div class="testimonial-author">
-                        <div class="author-info">
-                            <h4>ptpremier</h4>
-                            <p>United States • October 2023</p>
-                        </div>
-                        <div class="project-details">
-                            <span class="price">$100-$200</span>
-                            <span class="duration">2 weeks</span>
-                        </div>
-                    </div>
+                <div class="slider-controls" data-slider="testimonials">
+                    <button class="slider-btn prev-btn" data-slider="testimonials">‹</button>
+                    <div class="slider-dots" data-slider="testimonials"></div>
+                    <button class="slider-btn next-btn" data-slider="testimonials">›</button>
                 </div>
             </div>
         </div>
@@ -352,212 +359,219 @@
                     Innovative solutions combining AI, web development, and cloud technologies
                 </p>
             </div>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-image">
-                        <!-- Space for project image -->
-                        <div class="image-placeholder">
-                            <span>Project Image</span>
+            <div class="slider-container">
+                <div class="projects-slider">
+                    <div class="project-card">
+                        <div class="project-image">
+                            <!-- Space for project image -->
+                            <div class="image-placeholder">
+                                <span>Project Image</span>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3>Vector DB Embeddings & Knowledge Management</h3>
+                            <p>Advanced knowledge management application utilizing vector databases for semantic search and document embeddings. Features intelligent document retrieval and context-aware responses.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Vector DB</span>
+                                <span class="tech-tag">Embeddings</span>
+                                <span class="tech-tag">Knowledge Management</span>
+                                <span class="tech-tag">Semantic Search</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="project-link">View Project</a>
+                                <a href="#" class="project-link">GitHub</a>
+                            </div>
                         </div>
                     </div>
-                    <div class="project-content">
-                        <h3>Vector DB Embeddings & Knowledge Management</h3>
-                        <p>Advanced knowledge management application utilizing vector databases for semantic search and document embeddings. Features intelligent document retrieval and context-aware responses.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Vector DB</span>
-                            <span class="tech-tag">Embeddings</span>
-                            <span class="tech-tag">Knowledge Management</span>
-                            <span class="tech-tag">Semantic Search</span>
+
+                    <div class="project-card">
+                        <div class="project-image">
+                            <!-- Space for project image -->
+                            <div class="image-placeholder">
+                                <span>Project Image</span>
+                            </div>
                         </div>
-                        <div class="project-links">
-                            <a href="#" class="project-link">View Project</a>
-                            <a href="#" class="project-link">GitHub</a>
+                        <div class="project-content">
+                            <h3>Text-to-SQL LLAMA 3.2 3B Fine-tuned Model</h3>
+                            <p>Final Year Project: Fine-tuned LLAMA 3.2 3B model for natural language to SQL conversion. Achieved 70% ROUGE score and 75% BLEU score. Optimized for both desktop and mobile deployment.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">LLAMA 3.2 3B</span>
+                                <span class="tech-tag">Fine-tuning</span>
+                                <span class="tech-tag">Text-to-SQL</span>
+                                <span class="tech-tag">Mobile Optimization</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="project-link">View Project</a>
+                                <a href="#" class="project-link">GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-image">
+                            <!-- Space for project image -->
+                            <div class="image-placeholder">
+                                <span>Project Image</span>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3>Voice Appointment Booking Agentic Pipeline</h3>
+                            <p>Intelligent voice-powered appointment booking system using OpenAI Agents SDK. Features natural language processing for seamless scheduling and calendar integration.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">OpenAI Agents SDK</span>
+                                <span class="tech-tag">Voice Recognition</span>
+                                <span class="tech-tag">Agentic AI</span>
+                                <span class="tech-tag">Calendar Integration</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="project-link">View Project</a>
+                                <a href="#" class="project-link">GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-image">
+                            <!-- Space for project image -->
+                            <div class="image-placeholder">
+                                <span>Project Image</span>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3>Funnel2Tunnel: Maritime Domain Expert Chatbot</h3>
+                            <p>A sophisticated SaaS trained on 800+ maritime documents with OCR scanning and multichat capabilities. Features cost-effective context management for optimal performance.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Next.js</span>
+                                <span class="tech-tag">Langchain</span>
+                                <span class="tech-tag">Pinecone</span>
+                                <span class="tech-tag">AWS</span>
+                                <span class="tech-tag">Stripe</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="project-link">View Project</a>
+                                <a href="#" class="project-link">GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-image">
+                            <!-- Space for project image -->
+                            <div class="image-placeholder">
+                                <span>Project Image</span>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3>Real-Time Token Analysis AI Chatbot</h3>
+                            <p>Advanced chatbot for fraud and rug pull detection on Solana Network with smart investment insights and risk assessment algorithms to detect scams and honeypots.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Bitquery API</span>
+                                <span class="tech-tag">Web Scraping</span>
+                                <span class="tech-tag">AI/ML</span>
+                                <span class="tech-tag">Solana</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="project-link">View Project</a>
+                                <a href="#" class="project-link">GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-image">
+                            <!-- Space for project image -->
+                            <div class="image-placeholder">
+                                <span>Project Image</span>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3>Chat with SQL: Text-to-SQL AI Chatbot</h3>
+                            <p>Locally deployable solution enabling natural language interaction with PostgreSQL databases. Features cost-effective prompt engineering and conversation history management.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Gemma 3 1B</span>
+                                <span class="tech-tag">PostgreSQL</span>
+                                <span class="tech-tag">Chroma</span>
+                                <span class="tech-tag">NLP</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="project-link">View Project</a>
+                                <a href="#" class="project-link">GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-image">
+                            <!-- Space for project image -->
+                            <div class="image-placeholder">
+                                <span>Project Image</span>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3>Therabot - AI Therapy Assistant</h3>
+                            <p>Fine-tuned therapy chatbot available on both web and mobile platforms, providing supportive conversations and mental health guidance.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">GPT-3.5</span>
+                                <span class="tech-tag">Web Development</span>
+                                <span class="tech-tag">Mobile Development</span>
+                                <span class="tech-tag">AI Fine-tuning</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="project-link">View Project</a>
+                                <a href="#" class="project-link">GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-image">
+                            <!-- Space for project image -->
+                            <div class="image-placeholder">
+                                <span>Project Image</span>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3>Cross-Platform Blogging Application</h3>
+                            <p>Medium-like platform with full cross-platform support built using Flutter for mobile and Express.js for backend, providing seamless content creation experience.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Flutter</span>
+                                <span class="tech-tag">Express.js</span>
+                                <span class="tech-tag">MongoDB</span>
+                                <span class="tech-tag">Cross-Platform</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="project-link">View Project</a>
+                                <a href="#" class="project-link">GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-image">
+                            <!-- Space for project image -->
+                            <div class="image-placeholder">
+                                <span>Project Image</span>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3>AI Quiz Generator</h3>
+                            <p>Intelligent quiz generator that formulates quizzes on various topics using Gemini JSON API, providing educational content generation capabilities.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Gemini JSON API</span>
+                                <span class="tech-tag">AI/ML</span>
+                                <span class="tech-tag">Education Tech</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="project-link">View Project</a>
+                                <a href="#" class="project-link">GitHub</a>
+                            </div>
                         </div>
                     </div>
                 </div>
-
-                <div class="project-card">
-                    <div class="project-image">
-                        <!-- Space for project image -->
-                        <div class="image-placeholder">
-                            <span>Project Image</span>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3>Text-to-SQL LLAMA 3.2 3B Fine-tuned Model</h3>
-                        <p>Final Year Project: Fine-tuned LLAMA 3.2 3B model for natural language to SQL conversion. Achieved 70% ROUGE score and 75% BLEU score. Optimized for both desktop and mobile deployment.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">LLAMA 3.2 3B</span>
-                            <span class="tech-tag">Fine-tuning</span>
-                            <span class="tech-tag">Text-to-SQL</span>
-                            <span class="tech-tag">Mobile Optimization</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="#" class="project-link">View Project</a>
-                            <a href="#" class="project-link">GitHub</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-image">
-                        <!-- Space for project image -->
-                        <div class="image-placeholder">
-                            <span>Project Image</span>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3>Voice Appointment Booking Agentic Pipeline</h3>
-                        <p>Intelligent voice-powered appointment booking system using OpenAI Agents SDK. Features natural language processing for seamless scheduling and calendar integration.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">OpenAI Agents SDK</span>
-                            <span class="tech-tag">Voice Recognition</span>
-                            <span class="tech-tag">Agentic AI</span>
-                            <span class="tech-tag">Calendar Integration</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="#" class="project-link">View Project</a>
-                            <a href="#" class="project-link">GitHub</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-image">
-                        <!-- Space for project image -->
-                        <div class="image-placeholder">
-                            <span>Project Image</span>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3>Funnel2Tunnel: Maritime Domain Expert Chatbot</h3>
-                        <p>A sophisticated SaaS trained on 800+ maritime documents with OCR scanning and multichat capabilities. Features cost-effective context management for optimal performance.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Next.js</span>
-                            <span class="tech-tag">Langchain</span>
-                            <span class="tech-tag">Pinecone</span>
-                            <span class="tech-tag">AWS</span>
-                            <span class="tech-tag">Stripe</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="#" class="project-link">View Project</a>
-                            <a href="#" class="project-link">GitHub</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-image">
-                        <!-- Space for project image -->
-                        <div class="image-placeholder">
-                            <span>Project Image</span>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3>Real-Time Token Analysis AI Chatbot</h3>
-                        <p>Advanced chatbot for fraud and rug pull detection on Solana Network with smart investment insights and risk assessment algorithms to detect scams and honeypots.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Bitquery API</span>
-                            <span class="tech-tag">Web Scraping</span>
-                            <span class="tech-tag">AI/ML</span>
-                            <span class="tech-tag">Solana</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="#" class="project-link">View Project</a>
-                            <a href="#" class="project-link">GitHub</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-image">
-                        <!-- Space for project image -->
-                        <div class="image-placeholder">
-                            <span>Project Image</span>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3>Chat with SQL: Text-to-SQL AI Chatbot</h3>
-                        <p>Locally deployable solution enabling natural language interaction with PostgreSQL databases. Features cost-effective prompt engineering and conversation history management.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Gemma 3 1B</span>
-                            <span class="tech-tag">PostgreSQL</span>
-                            <span class="tech-tag">Chroma</span>
-                            <span class="tech-tag">NLP</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="#" class="project-link">View Project</a>
-                            <a href="#" class="project-link">GitHub</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-image">
-                        <!-- Space for project image -->
-                        <div class="image-placeholder">
-                            <span>Project Image</span>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3>Therabot - AI Therapy Assistant</h3>
-                        <p>Fine-tuned therapy chatbot available on both web and mobile platforms, providing supportive conversations and mental health guidance.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">GPT-3.5</span>
-                            <span class="tech-tag">Web Development</span>
-                            <span class="tech-tag">Mobile Development</span>
-                            <span class="tech-tag">AI Fine-tuning</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="#" class="project-link">View Project</a>
-                            <a href="#" class="project-link">GitHub</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-image">
-                        <!-- Space for project image -->
-                        <div class="image-placeholder">
-                            <span>Project Image</span>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3>Cross-Platform Blogging Application</h3>
-                        <p>Medium-like platform with full cross-platform support built using Flutter for mobile and Express.js for backend, providing seamless content creation experience.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Flutter</span>
-                            <span class="tech-tag">Express.js</span>
-                            <span class="tech-tag">MongoDB</span>
-                            <span class="tech-tag">Cross-Platform</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="#" class="project-link">View Project</a>
-                            <a href="#" class="project-link">GitHub</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-image">
-                        <!-- Space for project image -->
-                        <div class="image-placeholder">
-                            <span>Project Image</span>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3>AI Quiz Generator</h3>
-                        <p>Intelligent quiz generator that formulates quizzes on various topics using Gemini JSON API, providing educational content generation capabilities.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Gemini JSON API</span>
-                            <span class="tech-tag">AI/ML</span>
-                            <span class="tech-tag">Education Tech</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="#" class="project-link">View Project</a>
-                            <a href="#" class="project-link">GitHub</a>
-                        </div>
-                    </div>
+                <div class="slider-controls" data-slider="projects">
+                    <button class="slider-btn prev-btn" data-slider="projects">‹</button>
+                    <div class="slider-dots" data-slider="projects"></div>
+                    <button class="slider-btn next-btn" data-slider="projects">›</button>
                 </div>
             </div>
         </div>
@@ -692,42 +706,49 @@
                     Recognition for technical excellence and continuous learning
                 </p>
             </div>
-            <div class="achievements-grid">
-                <div class="achievement-card">
-                    <div class="achievement-icon">🏆</div>
-                    <h3>GitHub Starstruck Badge</h3>
-                    <p>Awarded for many stars in repositories</p>
-                    <span class="achievement-year">Since 2020</span>
+            <div class="slider-container">
+                <div class="achievements-slider">
+                    <div class="achievement-card">
+                        <div class="achievement-icon">🏆</div>
+                        <h3>GitHub Starstruck Badge</h3>
+                        <p>Awarded for many stars in repositories</p>
+                        <span class="achievement-year">Since 2020</span>
+                    </div>
+                    <div class="achievement-card">
+                        <div class="achievement-icon">💻</div>
+                        <h3>LeetCode Problem Solver</h3>
+                        <p>Solved over 75+ unique DSA problems</p>
+                        <span class="achievement-year">2020</span>
+                    </div>
+                    <div class="achievement-card">
+                        <div class="achievement-icon">📜</div>
+                        <h3>Node.js Intermediate Certificate</h3>
+                        <p>HackerRank certification in Node.js</p>
+                        <span class="achievement-year">2021</span>
+                    </div>
+                    <div class="achievement-card">
+                        <div class="achievement-icon">🔗</div>
+                        <h3>GitHub Foundations</h3>
+                        <p>GitHub platform fundamentals</p>
+                        <span class="achievement-year">2024</span>
+                    </div>
+                    <div class="achievement-card">
+                        <div class="achievement-icon">🚀</div>
+                        <h3>JavaScript Intermediate</h3>
+                        <p>Advanced JavaScript concepts mastery</p>
+                        <span class="achievement-year">2023</span>
+                    </div>
+                    <div class="achievement-card">
+                        <div class="achievement-icon">🤖</div>
+                        <h3>LangChain Certification</h3>
+                        <p>Chat with Your Data - DeepLearning.AI</p>
+                        <span class="achievement-year">2023</span>
+                    </div>
                 </div>
-                <div class="achievement-card">
-                    <div class="achievement-icon">💻</div>
-                    <h3>LeetCode Problem Solver</h3>
-                    <p>Solved over 75+ unique DSA problems</p>
-                    <span class="achievement-year">2020</span>
-                </div>
-                <div class="achievement-card">
-                    <div class="achievement-icon">📜</div>
-                    <h3>Node.js Intermediate Certificate</h3>
-                    <p>HackerRank certification in Node.js</p>
-                    <span class="achievement-year">2021</span>
-                </div>
-                <div class="achievement-card">
-                    <div class="achievement-icon">🔗</div>
-                    <h3>GitHub Foundations</h3>
-                    <p>GitHub platform fundamentals</p>
-                    <span class="achievement-year">2024</span>
-                </div>
-                <div class="achievement-card">
-                    <div class="achievement-icon">🚀</div>
-                    <h3>JavaScript Intermediate</h3>
-                    <p>Advanced JavaScript concepts mastery</p>
-                    <span class="achievement-year">2023</span>
-                </div>
-                <div class="achievement-card">
-                    <div class="achievement-icon">🤖</div>
-                    <h3>LangChain Certification</h3>
-                    <p>Chat with Your Data - DeepLearning.AI</p>
-                    <span class="achievement-year">2023</span>
+                <div class="slider-controls" data-slider="achievements">
+                    <button class="slider-btn prev-btn" data-slider="achievements">‹</button>
+                    <div class="slider-dots" data-slider="achievements"></div>
+                    <button class="slider-btn next-btn" data-slider="achievements">›</button>
                 </div>
             </div>
         </div>
