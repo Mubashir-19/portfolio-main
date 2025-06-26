@@ -410,9 +410,9 @@ class PortfolioApp {
                     if (entry.isIntersecting) {
                         const img = entry.target;
                         if (img.dataset.src) {
-                            img.src = img.dataset.src;
-                            img.classList.add('loaded');
-                            imageObserver.unobserve(img);
+                          img.src = img.dataset.src;
+                          img.classList.add('loaded');
+                          imageObserver.unobserve(img);
                         }
                     }
                 });
@@ -639,18 +639,36 @@ class HorizontalSlider {
             return;
         }
 
-        // Calculate how many cards to show at once based on container width
-        const containerWidth = container ? container.offsetWidth - 64 : slider.parentElement.offsetWidth - 64;
-        const cardWidth = cards[0].offsetWidth;
-        const gap = 32;
-        const cardsPerView = Math.max(1, Math.floor((containerWidth + gap) / (cardWidth + gap)));
+        // Responsive breakpoints
+        const windowWidth = window.innerWidth;
+        const mobileBreakpoint = 768;
+        const tabletBreakpoint = 1024;
+
+        let cardsPerView;
+
+        // Force 1 card per view on mobile devices
+        if (windowWidth < mobileBreakpoint) {
+            cardsPerView = 1;
+        } else {
+            // Calculate how many cards to show at once based on container width for larger screens
+            const containerWidth = container ? container.offsetWidth - 64 : slider.parentElement.offsetWidth - 64;
+            const cardWidth = cards[0].offsetWidth;
+            const gap = 32;
+            
+            if (windowWidth < tabletBreakpoint) {
+                // On tablets, limit to max 2 cards
+                cardsPerView = Math.min(2, Math.max(1, Math.floor((containerWidth + gap) / (cardWidth + gap))));
+            } else {
+                // On desktop, allow more cards
+                cardsPerView = Math.max(1, Math.floor((containerWidth + gap) / (cardWidth + gap)));
+            }
+        }
 
         console.log(`${name} slider calculations:`, {
-            containerWidth,
-            cardWidth,
-            gap,
+            windowWidth,
             cardsPerView,
-            totalCards: cards.length
+            totalCards: cards.length,
+            isMobile: windowWidth < mobileBreakpoint
         });
 
         this.sliders[name] = {
@@ -885,15 +903,28 @@ class HorizontalSlider {
             console.log(`${name}: Moved to slide ${sliderData.currentIndex}`);
         }
     }
-
     updateSlider(name) {
         const sliderData = this.sliders[name];
-        const cardWidth = sliderData.cards[0].offsetWidth;
-        const gap = 32; // var(--space-xl)
-        const translateX = -(sliderData.currentIndex * (cardWidth + gap));
-
+        const isMobile = window.innerWidth < 768;
+        
+        let translateX;
+        if (isMobile) {
+            // On mobile, calculate based on actual card width to prevent half-card display
+            const cardWidth = sliderData.cards[0].offsetWidth;
+            const cardStyle = window.getComputedStyle(sliderData.cards[0]);
+            const marginRight = parseFloat(cardStyle.marginRight) || 0;
+            const totalCardWidth = cardWidth + marginRight;
+            
+            translateX = -(sliderData.currentIndex * totalCardWidth);
+        } else {
+            // On desktop, use card width + gap
+            const cardWidth = sliderData.cards[0].offsetWidth;
+            const gap = 32; // var(--space-xl)
+            translateX = -(sliderData.currentIndex * (cardWidth + gap));
+        }
+    
         sliderData.slider.style.transform = `translateX(${translateX}px)`;
-
+    
         // Update dots
         if (sliderData.dotsContainer) {
             const dots = sliderData.dotsContainer.querySelectorAll('.slider-dot');
@@ -901,7 +932,7 @@ class HorizontalSlider {
                 dot.classList.toggle('active', index === sliderData.currentIndex);
             });
         }
-
+    
         // Add smooth animation
         sliderData.slider.style.transition = 'transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
     }
@@ -921,42 +952,21 @@ class HorizontalSlider {
     }
 
     handleResize() {
-        // Pause all auto-scrolling during resize
-        Object.keys(this.sliders).forEach(name => {
-            this.pauseAutoScroll(name);
-        });
+        // Handle responsive adjustments
+        const mobileBreakpoint = 768;
+        const isMobile = window.innerWidth < mobileBreakpoint;
 
-        // Recalculate slider parameters on resize
-        Object.keys(this.sliders).forEach(name => {
-            const sliderData = this.sliders[name];
-            const containerWidth = sliderData.container ?
-                sliderData.container.offsetWidth - 64 :
-                sliderData.slider.parentElement.offsetWidth - 64;
-            const cardWidth = sliderData.cards[0].offsetWidth;
-            const gap = 32;
-            const newCardsPerView = Math.max(1, Math.floor((containerWidth + gap) / (cardWidth + gap)));
-            const newMaxIndex = Math.max(0, sliderData.totalCards - newCardsPerView);
+        // Close mobile menu on resize to desktop
+        if (!isMobile) {
+            const navMenu = document.getElementById('nav-menu');
+            const navToggle = document.getElementById('nav-toggle');
 
-            sliderData.cardsPerView = newCardsPerView;
-            sliderData.maxIndex = newMaxIndex;
-
-            // Adjust current index if needed
-            if (sliderData.currentIndex > newMaxIndex) {
-                sliderData.currentIndex = newMaxIndex;
+            if (navMenu && navToggle) {
+                navMenu.classList.remove('active');
+                navToggle.classList.remove('active');
+                document.body.style.overflow = '';
             }
-
-            // Recreate dots and update
-            this.createDots(name);
-            this.updateSlider(name);
-            this.updateControls(name);
-        });
-
-        // Resume auto-scrolling after resize
-        setTimeout(() => {
-            Object.keys(this.sliders).forEach(name => {
-                this.resumeAutoScroll(name);
-            });
-        }, 500);
+        }
     }
 
     addTouchSupport() {
@@ -965,35 +975,37 @@ class HorizontalSlider {
             let startX = 0;
             let currentX = 0;
             let isDragging = false;
-
+    
             sliderData.slider.addEventListener('touchstart', (e) => {
                 startX = e.touches[0].clientX;
                 isDragging = true;
                 sliderData.isUserInteracting = true;
                 this.pauseAutoScroll(name);
             }, { passive: true });
-
+    
             sliderData.slider.addEventListener('touchmove', (e) => {
                 if (!isDragging) return;
                 currentX = e.touches[0].clientX;
-
+    
                 // Optional: Add visual feedback during drag
                 const diffX = startX - currentX;
                 const currentTransform = sliderData.slider.style.transform.match(/translateX\(([^)]+)\)/);
                 const currentTranslateX = currentTransform ? parseFloat(currentTransform[1]) : 0;
-
+    
                 // Apply drag effect with resistance
                 const dragResistance = 0.3;
                 sliderData.slider.style.transform = `translateX(${currentTranslateX - (diffX * dragResistance)}px)`;
                 sliderData.slider.style.transition = 'none';
             }, { passive: true });
-
+    
             sliderData.slider.addEventListener('touchend', () => {
                 if (!isDragging) return;
-
+    
                 const diffX = startX - currentX;
-                const threshold = 50; // Minimum swipe distance
-
+                // Dynamic threshold based on device size
+                const isMobile = window.innerWidth < 768;
+                const threshold = isMobile ? window.innerWidth * 0.15 : 50; // 15% of viewport width on mobile, 50px on desktop
+    
                 if (Math.abs(diffX) > threshold) {
                     if (diffX > 0 && sliderData.currentIndex < sliderData.maxIndex) {
                         // Swipe left - next slide
@@ -1009,17 +1021,16 @@ class HorizontalSlider {
                     // Restore original position
                     this.updateSlider(name);
                 }
-
+    
                 isDragging = false;
                 sliderData.isUserInteracting = false;
                 this.resumeAutoScrollAfterDelay(name, 2000);
             }, { passive: true });
-
+    
             // Set initial cursor
             sliderData.slider.style.cursor = 'grab';
         });
     }
-
     // Utility function
     debounce(func, wait) {
         let timeout;
