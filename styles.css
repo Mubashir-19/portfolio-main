@@ -416,7 +416,7 @@ a:hover {
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-lg);
-  margin-bottom: var(--space-3xl);
+  margin-bottom: var(--space-lg);
 }
 
 .hero-stats {
@@ -446,7 +446,7 @@ a:hover {
   animation: fadeInRight 1s var(--easing-smooth);
 }
 
-#hero-image-hero {
+#hero-image-hero, #about-image-about {
   width: 100%;
   height: auto;
   max-width: 100%;
@@ -1521,6 +1521,91 @@ a:hover {
   }
 }
 
+/* Hero Social Links */
+.hero-social {
+  display: flex;
+  gap: var(--space-md);
+  margin-bottom: var(--space-2xl);
+  justify-content: flex-start;
+  align-items: center;
+}
+
+/* parent – optional, but keeps the image centred inside */
+.image-placeholder {
+  /* Give the wrapper whatever fixed, fluid, or max dimensions you need */
+  /* e.g. width: 300px; height: 200px; or use flex/grid sizing */
+  display: flex;           /* centres the image nicely */
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;        /* hides anything that might still spill */
+}
+
+/* child image */
+.image-placeholder img {
+  max-width: 100%;         /* never wider than the wrapper */
+  max-height: 100%;        /* never taller than the wrapper */
+  height: auto;            /* preserve aspect ratio */
+  width: auto;
+  object-fit: contain;     /* scales down (not up) so the whole image is visible */
+}
+
+
+.social-link {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-sm) var(--space-md);
+  background: var(--neutral-white);
+  border: 2px solid var(--primary-blue);
+  border-radius: var(--radius-full);
+  color: var(--primary-blue);
+  text-decoration: none;
+  font-weight: var(--font-medium);
+  font-size: var(--text-sm);
+  transition: all var(--duration-normal) var(--easing-default);
+  box-shadow: var(--shadow-soft);
+  position: relative;
+  overflow: hidden;
+}
+
+.social-link::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: var(--gradient-primary);
+  transition: left var(--duration-normal) var(--easing-default);
+  z-index: -1;
+}
+
+.social-link:hover::before {
+  left: 0;
+}
+
+.social-link:hover {
+  color: var(--neutral-white);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-medium);
+  border-color: var(--primary-blue);
+}
+
+.social-icon {
+  width: 20px;
+  height: 20px;
+  transition: transform var(--duration-normal) var(--easing-default);
+}
+
+.social-link:hover .social-icon {
+  transform: scale(1.1);
+}
+
+.social-link span {
+  font-weight: var(--font-semibold);
+  transition: color var(--duration-normal) var(--easing-default);
+}
+
 /* Print Styles */
 @media print {
 
@@ -1573,6 +1658,17 @@ a:hover {
 }
 
 /* RESPONSIVE DESIGN - Mobile First Approach */
+
+@media ( min-width: 1280px) {
+  
+  .skills-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 350px));
+
+    /* optional: keep the whole grid from spanning the entire ultrawide viewport */
+    max-width: 1400px;
+    margin-inline: auto;   /* centers the grid */
+  }
+}
 
 /* Large Tablets and Small Desktops */
 @media (max-width: 1024px) {
@@ -1794,6 +1890,10 @@ a:hover {
     --space-xl: 0.75rem;
   }
 
+  .hero-social {
+    justify-content: center;
+    margin-bottom: 40px;
+  }
   .container {
     padding: 5vw;
   }
