@@ -229,6 +229,48 @@ a:hover {
   transform: translateY(-2px);
 }
 
+/* CV Download Button */
+.btn-cv {
+  background: var(--gradient-accent);
+  color: var(--neutral-white);
+  border: 2px solid transparent;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-cv::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left var(--duration-normal) var(--easing-default);
+}
+
+.btn-cv:hover::before {
+  left: 100%;
+}
+
+.btn-cv:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-large);
+  color: var(--neutral-white);
+  background: linear-gradient(135deg, #3B82F6 0%, #1E40AF 100%);
+}
+
+.cv-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: var(--space-sm);
+  transition: transform var(--duration-normal) var(--easing-default);
+}
+
+.btn-cv:hover .cv-icon {
+  transform: scale(1.1) rotate(-5deg);
+}
+
 /* Navigation */
 .navbar {
   position: fixed;
