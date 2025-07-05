@@ -228,7 +228,7 @@ class PortfolioApp {
         const contactForm = document.getElementById('contact-form');
 
         if (contactForm) {
-            contactForm.addEventListener('submit', this.handleContactFormSubmit.bind(this));
+            // contactForm.addEventListener('submit', this.handleContactFormSubmit.bind(this));
 
             // Add real-time validation
             const inputs = contactForm.querySelectorAll('input, textarea');
@@ -239,41 +239,41 @@ class PortfolioApp {
         }
     }
 
-    async handleContactFormSubmit(e) {
-        e.preventDefault();
+    // async handleContactFormSubmit(e) {
+    //     e.preventDefault();
 
-        const form = e.target;
-        const formData = new FormData(form);
-        const submitButton = form.querySelector('button[type="submit"]');
+    //     const form = e.target;
+    //     const formData = new FormData(form);
+    //     const submitButton = form.querySelector('button[type="submit"]');
 
-        // Validate form
-        if (!this.validateForm(form)) {
-            return;
-        }
+    //     // Validate form
+    //     if (!this.validateForm(form)) {
+    //         return;
+    //     }
 
-        // Show loading state
-        const originalText = submitButton.textContent;
-        submitButton.textContent = 'Sending...';
-        submitButton.disabled = true;
+    //     // Show loading state
+    //     const originalText = submitButton.textContent;
+    //     submitButton.textContent = 'Sending...';
+    //     submitButton.disabled = true;
 
-        try {
-            // Here you would typically send the form data to your backend
-            // For now, we'll simulate the process
-            await this.simulateFormSubmission(formData);
+    //     try {
+    //         // Here you would typically send the form data to your backend
+    //         // For now, we'll simulate the process
+    //         await this.simulateFormSubmission(formData);
 
-            // Show success message
-            this.showNotification('Message sent successfully! I\'ll get back to you soon.', 'success');
-            form.reset();
+    //         // Show success message
+    //         this.showNotification('Message sent successfully! I\'ll get back to you soon.', 'success');
+    //         form.reset();
 
-        } catch (error) {
-            console.error('Form submission error:', error);
-            this.showNotification('Sorry, there was an error sending your message. Please try again.', 'error');
-        } finally {
-            // Restore button state
-            submitButton.textContent = originalText;
-            submitButton.disabled = false;
-        }
-    }
+    //     } catch (error) {
+    //         console.error('Form submission error:', error);
+    //         this.showNotification('Sorry, there was an error sending your message. Please try again.', 'error');
+    //     } finally {
+    //         // Restore button state
+    //         submitButton.textContent = originalText;
+    //         submitButton.disabled = false;
+    //     }
+    // }
 
     validateForm(form) {
         const inputs = form.querySelectorAll('input[required], textarea[required]');
