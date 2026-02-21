@@ -435,10 +435,10 @@ export default function App() {
         },
         {
             id: 2,
-            title: "SmileReveal AI",
+            title: "SmileReveal",
             shortDesc: "AI-powered dental simulation and shade matching app.",
             longDescription: "SmileReveal leverages advanced AI to provide realistic dental simulations and accurate shade matching. It features an admin portal for dentists and a user dashboard for patients to visualize their future smiles. The platform includes tools for before-and-after comparisons, gallery management, and automated shade detection, enhancing patient-dentist communication.",
-            image: "/portfolio/smilereveal/smilereveal gallery.png",
+            image: "/portfolio/smilereveal/smilereveal all shades.png",
             gallery: [
                 "/portfolio/smilereveal/smilereveal admin portal.png",
                 "/portfolio/smilereveal/smilereveal all shades.png",
@@ -454,9 +454,9 @@ export default function App() {
         },
         {
             id: 3,
-            title: "Fluuz Pay",
+            title: "Fluuz Bank",
             shortDesc: "Next-gen crypto payment and dashboard solution.",
-            longDescription: "Fluuz is a modern payment platform designed for the crypto ecosystem. It offers a seamless experience for sending and receiving payments, with a powerful dashboard for tracking transactions and managing digital assets. The interface focuses on high-speed interactions and visual clarity, making crypto payments accessible to everyone.",
+            longDescription: "Fluuz Bank is a platform that allows people to easily use and store value. It handles crypto to fiat, fiat to crypto, crypto to crypto etc., all in a press of a button you receive the amount. Features user friendly design and custodial wallets for maximum security.",
             image: "/portfolio/fluuz/fluuz dashboard.png",
             gallery: [
                 "/portfolio/fluuz/fluuz get paid.png",
@@ -473,13 +473,13 @@ export default function App() {
             id: 4,
             title: "TieTools Suite",
             shortDesc: "A versatile suite of digital tools and utilities.",
-            longDescription: "TieTools is a collection of productivity-focused utilities built to solve everyday digital tasks. From data transformation to code snippets management, TieTools provides a clean and efficient workspace for developers and power users. Each tool is designed with a focus on performance and minimalist design.",
+            longDescription: "TieTools is a CRM that integrates Google Ads, Meta Ads, and GoHighLevel data to create reporting and integrated data from all sources. It has tools for different needs of Account Managers, Quality Assurance, Media Buyers, and Content Operations. Includes specialized roles for Admins (Developer Admin, Owner) and Marketing Managers (B2B and B2C).",
             image: "/portfolio/tietools/tools1.png",
             gallery: [
                 "/portfolio/tietools/tools2.png",
                 "/portfolio/tietools/tools3.png"
             ],
-            tags: ["Utilities", "Developer Tools", "Minimalist"],
+            tags: ["Utilities", "Developer Tools", "CRM"],
             icon: Terminal,
             color: "text-orange-400",
             link: "#",
@@ -628,10 +628,10 @@ export default function App() {
                 </div>
 
                 {/* === SECTION 2: WORK & EXPERIENCE === */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 h-[500px] mb-6">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 md:h-[600px] mb-6">
 
                     {/* EXPERIENCE TIMELINE */}
-                    <Card className="col-span-1 md:col-span-1 row-span-2" delay={300} theme={theme} noPadding>
+                    <Card className="col-span-1 md:col-span-1 md:h-full h-[400px]" delay={300} theme={theme} noPadding>
                         <div className="flex flex-col h-full">
                             {/* Header with Padding */}
                             <div className="p-6 pb-2">
@@ -654,7 +654,7 @@ export default function App() {
                                             <div className={`absolute -left-[5px] top-1.5 w-2.5 h-2.5 rounded-full border transition-colors 
                                         ${theme === 'dark'
                                                     ? 'bg-zinc-800 border-white/20 group-hover/item:bg-blue-500 group-hover/item:border-blue-400'
-                                                    : 'bg-[#F9F8F6] border-[#C9B59C] group-hover/item:bg-[#EFE9E3] group-hover/item:border-[#8a7a68]'}`
+                                                    : 'bg-[#F9F8F6] border-[#D9CFC7] group-hover/item:bg-[#EFE9E3] group-hover/item:border-[#8a7a68]'}`
                                             } />
                                             <h4 className={`font-semibold ${theme === 'dark' ? 'text-zinc-200' : 'text-[#4A4A4A]'}`}>{job.role}</h4>
                                             <div className={`text-xs mb-1 font-mono ${theme === 'dark' ? 'text-blue-400' : 'text-[#8a7a68]'}`}>{job.company} • {job.date}</div>
@@ -667,60 +667,62 @@ export default function App() {
                     </Card>
 
                     {/* PROJECTS SECTION */}
-                    <div className={`col-span-1 md:col-span-2 h-full flex flex-col overflow-hidden rounded-2xl border backdrop-blur-md ${theme === 'dark' ? 'border-white/10 bg-zinc-900/20' : 'border-[#D9CFC7] bg-[#EFE9E3]/40'}`}>
-                        <div className="p-6 pb-2 flex items-center justify-between shrink-0">
-                            <div className={`flex items-center gap-2 ${theme === 'dark' ? 'text-zinc-100' : 'text-[#4A4A4A]'}`}>
-                                <Layers size={20} className={theme === 'dark' ? 'text-orange-400' : 'text-[#C9B59C]'} />
-                                <h3 className={`font-bold text-lg ${textMain}`}>Selected Works</h3>
+                    <Card className="col-span-1 md:col-span-2 md:h-full h-[500px]" delay={350} theme={theme} noPadding>
+                        <div className="flex flex-col h-full overflow-hidden">
+                            <div className="p-6 pb-2 flex items-center justify-between shrink-0">
+                                <div className={`flex items-center gap-2 ${theme === 'dark' ? 'text-zinc-100' : 'text-[#4A4A4A]'}`}>
+                                    <Layers size={20} className={theme === 'dark' ? 'text-orange-400' : 'text-[#C9B59C]'} />
+                                    <h3 className={`font-bold text-lg ${textMain}`}>Featured Projects</h3>
+                                </div>
+                                <span className="text-xs font-mono opacity-50 tracking-tight">{projects.length} PROJECTS</span>
                             </div>
-                            <span className="text-xs font-mono opacity-50 tracking-tight">{projects.length} PROJECTS</span>
-                        </div>
 
-                        <div className="flex-1 overflow-y-auto custom-scrollbar p-6">
-                            <div className="masonry-grid">
-                                {projects.map((proj, idx) => (
-                                    <Card
-                                        key={proj.id}
-                                        delay={350 + (idx * 50)}
-                                        noPadding
-                                        theme={theme}
-                                        onClick={() => setSelectedProject(proj)}
-                                        className={`min-h-[240px] ${proj.size === 'large' ? 'col-span-2 row-span-2 min-h-[350px]' : 'col-span-1'}`}
-                                    >
-                                        <div className="absolute inset-0 z-0">
-                                            <img src={proj.image} alt={proj.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
-                                            <div className={`absolute inset-0 transition-all duration-500 opacity-0 group-hover:opacity-100 ${theme === 'dark' ? 'bg-zinc-950/60' : 'bg-white/60'}`} />
-                                            <div className={`absolute inset-0 bg-gradient-to-t opacity-0 group-hover:opacity-100 transition-opacity duration-500 ${theme === 'dark' ? 'from-black via-black/40 to-transparent' : 'from-white via-white/40 to-transparent'}`} />
-                                        </div>
-
-                                        <div className="relative z-20 p-6 flex flex-col h-full">
-                                            <div className="flex justify-between items-start mb-4">
-                                                <h4 className={`font-bold ${proj.size === 'large' ? 'text-2xl' : 'text-lg'} transition-all duration-500 opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 ${theme === 'dark' ? 'text-white' : 'text-[#1a1a1a]'}`}>
-                                                    {proj.title}
-                                                </h4>
-                                                <div className={`p-2 rounded-full backdrop-blur-md opacity-0 group-hover:opacity-100 transition-all duration-300 ${theme === 'dark' ? 'bg-white text-black' : 'bg-[#4A4A4A] text-[#F9F8F6]'}`}>
-                                                    <ArrowUpRight size={16} />
-                                                </div>
+                            <div className="flex-1 overflow-y-auto custom-scrollbar p-6">
+                                <div className="masonry-grid">
+                                    {projects.map((proj, idx) => (
+                                        <Card
+                                            key={proj.id}
+                                            delay={350 + (idx * 50)}
+                                            noPadding
+                                            theme={theme}
+                                            onClick={() => setSelectedProject(proj)}
+                                            className={`min-h-[240px] group/project ${proj.size === 'large' ? 'col-span-2 row-span-2 min-h-[350px]' : 'col-span-1'}`}
+                                        >
+                                            <div className={`absolute inset-0 z-0 ${theme === 'dark' ? 'bg-zinc-900' : 'bg-[#EFE9E3]'}`}>
+                                                <img src={proj.image} alt={proj.title} className="w-full h-full object-contain transition-transform duration-700 group-hover/project:scale-105" />
+                                                <div className={`absolute inset-0 transition-all duration-500 opacity-0 group-hover/project:opacity-100 ${theme === 'dark' ? 'bg-zinc-950/40' : 'bg-white/40'}`} />
+                                                <div className={`absolute inset-0 bg-gradient-to-t opacity-0 group-hover/project:opacity-100 transition-opacity duration-500 ${theme === 'dark' ? 'from-black via-black/40 to-transparent' : 'from-white via-white/40 to-transparent'}`} />
                                             </div>
 
-                                            <div className="mt-auto opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500">
-                                                <p className={`text-sm line-clamp-2 mb-3 ${theme === 'dark' ? 'text-zinc-300' : 'text-[#6e6760]'}`}>
-                                                    {proj.shortDesc}
-                                                </p>
-                                                <div className="flex gap-2 flex-wrap">
-                                                    {proj.tags.slice(0, proj.size === 'large' ? 4 : 2).map((t, i) => (
-                                                        <span key={i} className={`text-[10px] px-2 py-1 rounded-md font-bold uppercase tracking-wider ${theme === 'dark' ? 'bg-white/10 text-white' : 'bg-[#EFE9E3] text-[#5e5852]'}`}>
-                                                            {t}
-                                                        </span>
-                                                    ))}
+                                            <div className="relative z-20 p-6 flex flex-col h-full">
+                                                <div className="flex justify-between items-start mb-4">
+                                                    <h4 className={`font-bold ${proj.size === 'large' ? 'text-2xl' : 'text-lg'} transition-all duration-500 opacity-0 translate-y-2 group-hover/project:opacity-100 group-hover/project:translate-y-0 ${theme === 'dark' ? 'text-white' : 'text-[#1a1a1a]'}`}>
+                                                        {proj.title}
+                                                    </h4>
+                                                    <div className={`p-2 rounded-full backdrop-blur-md opacity-0 group-hover/project:opacity-100 transition-all duration-300 ${theme === 'dark' ? 'bg-white text-black' : 'bg-[#4A4A4A] text-[#F9F8F6]'}`}>
+                                                        <ArrowUpRight size={16} />
+                                                    </div>
+                                                </div>
+
+                                                <div className="mt-auto opacity-0 translate-y-4 group-hover/project:opacity-100 group-hover/project:translate-y-0 transition-all duration-500">
+                                                    <p className={`text-sm line-clamp-2 mb-3 ${theme === 'dark' ? 'text-zinc-300' : 'text-[#6e6760]'}`}>
+                                                        {proj.shortDesc}
+                                                    </p>
+                                                    <div className="flex gap-2 flex-wrap">
+                                                        {proj.tags.slice(0, proj.size === 'large' ? 4 : 2).map((t, i) => (
+                                                            <span key={i} className={`text-[10px] px-2 py-1 rounded-md font-bold uppercase tracking-wider ${theme === 'dark' ? 'bg-white/10 text-white' : 'bg-[#EFE9E3] text-[#5e5852]'}`}>
+                                                                {t}
+                                                            </span>
+                                                        ))}
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </Card>
-                                ))}
+                                        </Card>
+                                    ))}
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </Card>
                 </div>
 
                 {/* === SECTION 3: TESTIMONIALS & CONTACT === */}
@@ -749,7 +751,7 @@ export default function App() {
                                     { text: "Fantastic eye for design and performance. The dashboard he built is incredibly fast.", name: "Emily Chen", role: "CTO, DataCorp", initials: "EC", color: "from-pink-400 to-rose-400" }
                                 ].map((review, i) => (
                                     <div key={i} className={`p-5 rounded-2xl border relative group transition-colors 
-                                ${theme === 'dark'
+                                   ${theme === 'dark'
                                             ? 'bg-white/5 border-white/5 hover:bg-white/10'
                                             : 'bg-[#F9F8F6] border-[#D9CFC7] hover:bg-white'}`}>
                                         <div className="flex gap-1 mb-2">
@@ -869,7 +871,6 @@ export default function App() {
                             </form>
                         )}
                     </Card>
-
                 </div>
 
                 {/* FOOTER */}
@@ -891,4 +892,3 @@ export default function App() {
         </div>
     );
 }
-
