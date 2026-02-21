@@ -528,13 +528,13 @@ export default function App() {
                 <div className={`absolute bottom-[-10%] right-[-10%] w-[50vw] h-[50vw] rounded-full blur-[120px] ${theme === 'dark' ? 'bg-purple-900/10' : 'bg-[#D9CFC7]/40'}`} />
             </div>
 
-            <div className="max-w-[1200px] mx-auto relative z-10 space-y-6">
+            <div className="max-w-[1200px] mx-auto relative z-10">
 
                 {/* HEADER & THEME TOGGLE */}
                 <div className="flex justify-end items-center h-12">
                     <button
                         onClick={toggleTheme}
-                        className={`p-3 rounded-full backdrop-blur-md border transition-all duration-300
+                        className={`p-3 rounded-full backdrop-blur-md border transition-all duration-300 mb-8
                  ${theme === 'dark'
                                 ? 'bg-white/10 border-white/10 hover:bg-white/20 text-yellow-400'
                                 : 'bg-[#EFE9E3] border-[#D9CFC7] hover:bg-white text-[#4A4A4A] shadow-sm'
@@ -552,7 +552,7 @@ export default function App() {
                         <div className="space-y-4 flex-1">
                             <div className="flex items-start justify-between">
                                 <div className="relative group/avatar">
-                                    <div className={`overflow-hidden shadow-xl transition-transform duration-500 group-hover/avatar:scale-105 m-0 p-0`}>
+                                    <div className={`overflow-hidden transition-transform duration-500 group-hover/avatar:scale-105 m-0 p-0`}>
                                         <img src="/me.webp" alt="Mubashir Ahmed" className="h-32 object-cover" />
                                     </div>
                                     <div className={`absolute bottom-4 right-3 p-1 rounded-full ${theme === 'dark' ? 'bg-[#050505]' : 'bg-[#F9F8F6]'}`}>
@@ -677,12 +677,12 @@ export default function App() {
 
                     {/* PROJECTS SECTION */}
                     <div className={`col-span-1 md:col-span-2 h-full flex flex-col overflow-hidden rounded-2xl border backdrop-blur-md ${theme === 'dark' ? 'border-white/10 bg-zinc-900/20' : 'border-[#D9CFC7] bg-[#EFE9E3]/40'}`}>
-                        <div className={`p-6 border-b backdrop-blur-xl flex items-center justify-between shrink-0 ${theme === 'dark' ? 'border-white/5 bg-white/5' : 'border-[#D9CFC7] bg-[#F9F8F6]/50'}`}>
-                            <div className="flex items-center gap-2">
+                        <div className="p-6 pb-2 flex items-center justify-between shrink-0">
+                            <div className={`flex items-center gap-2 ${theme === 'dark' ? 'text-zinc-100' : 'text-[#4A4A4A]'}`}>
                                 <Layers size={20} className={theme === 'dark' ? 'text-orange-400' : 'text-[#C9B59C]'} />
                                 <h3 className={`font-bold text-lg ${textMain}`}>Selected Works</h3>
                             </div>
-                            <span className="text-xs font-mono opacity-50">{projects.length} PROJECTS</span>
+                            <span className="text-xs font-mono opacity-50 tracking-tight">{projects.length} PROJECTS</span>
                         </div>
 
                         <div className="flex-1 overflow-y-auto custom-scrollbar p-6">
@@ -698,12 +698,13 @@ export default function App() {
                                     >
                                         <div className="absolute inset-0 z-0">
                                             <img src={proj.image} alt={proj.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
-                                            <div className={`absolute inset-0 bg-gradient-to-t ${theme === 'dark' ? 'from-black/90 via-black/40 to-transparent' : 'from-[#EFE9E3] via-[#EFE9E3]/20 to-transparent'}`} />
+                                            <div className={`absolute inset-0 transition-all duration-500 opacity-0 group-hover:opacity-100 ${theme === 'dark' ? 'bg-zinc-950/60' : 'bg-white/60'}`} />
+                                            <div className={`absolute inset-0 bg-gradient-to-t opacity-0 group-hover:opacity-100 transition-opacity duration-500 ${theme === 'dark' ? 'from-black via-black/40 to-transparent' : 'from-white via-white/40 to-transparent'}`} />
                                         </div>
 
                                         <div className="relative z-20 p-6 flex flex-col h-full">
                                             <div className="flex justify-between items-start mb-4">
-                                                <h4 className={`font-bold ${proj.size === 'large' ? 'text-2xl' : 'text-lg'} ${theme === 'dark' ? 'text-white' : 'text-[#4A4A4A]'}`}>
+                                                <h4 className={`font-bold ${proj.size === 'large' ? 'text-2xl' : 'text-lg'} transition-all duration-500 opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 ${theme === 'dark' ? 'text-white' : 'text-[#1a1a1a]'}`}>
                                                     {proj.title}
                                                 </h4>
                                                 <div className={`p-2 rounded-full backdrop-blur-md opacity-0 group-hover:opacity-100 transition-all duration-300 ${theme === 'dark' ? 'bg-white text-black' : 'bg-[#4A4A4A] text-[#F9F8F6]'}`}>
