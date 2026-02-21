@@ -324,7 +324,7 @@ const ProjectModal = ({ project, isOpen, onClose, theme }: ProjectModalProps) =>
                 className="absolute inset-0 bg-black/90 backdrop-blur-xl transition-opacity animate-in fade-in duration-500"
                 onClick={onClose}
             />
-            <div className={`relative w-full max-w-6xl max-h-[85vh] overflow-y-auto rounded-[2rem] border shadow-[0_0_50px_rgba(0,0,0,0.5)] transform transition-all animate-in fade-in zoom-in-95 duration-500 custom-scrollbar
+            <div className={`relative w-full max-w-6xl max-h-[85vh] overflow-hidden rounded-[2rem] border shadow-[0_0_50px_rgba(0,0,0,0.5)] transform transition-all animate-in fade-in zoom-in-95 duration-500
         ${theme === 'dark' ? 'bg-[#0a0a0a] border-white/10' : 'bg-[#F9F8F6] border-[#D9CFC7]'}
       `}>
                 {/* Close Button */}
@@ -337,21 +337,24 @@ const ProjectModal = ({ project, isOpen, onClose, theme }: ProjectModalProps) =>
                     <X size={20} />
                 </button>
 
-                <div className="flex flex-col md:flex-row h-full">
+                <div className="flex flex-col md:flex-row min-h-0 h-full overflow-y-auto custom-scrollbar">
                     {/* Gallery Sidebar / Bottom (Responsive) */}
-                    <div className={`w-full md:w-2/3 relative group bg-black/20 flex items-center justify-center min-h-[300px] md:min-h-[500px]`}>
+                    <div className={`w-full md:w-2/3 relative group bg-[#111] flex items-center justify-center min-h-[350px] md:min-h-[500px]`}>
                         <img
                             src={activeImage || project.image}
                             alt={project.title}
-                            className="max-w-full max-h-full object-contain transition-all duration-500"
+                            className="w-full h-full object-contain object-left transition-all duration-500"
                         />
 
                         {/* Gallery Navigation (Thumbnails) */}
-                        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2 p-2 rounded-2xl backdrop-blur-md bg-black/30 border border-white/10 max-w-[90%] overflow-x-auto scrollbar-hide">
+                        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-30 flex gap-2 p-2 rounded-2xl backdrop-blur-md bg-black/50 border border-white/10 max-w-[90%] overflow-x-auto scrollbar-hide">
                             {allImages.map((img, i) => (
                                 <button
                                     key={i}
-                                    onClick={() => setActiveImage(img)}
+                                    onClick={(e) => {
+                                        e.stopPropagation();
+                                        setActiveImage(img);
+                                    }}
                                     className={`relative w-16 h-12 rounded-lg overflow-hidden flex-shrink-0 transition-all duration-300 border-2 
                     ${activeImage === img ? 'border-blue-500 scale-105' : 'border-transparent opacity-60 hover:opacity-100'}
                   `}
@@ -364,10 +367,7 @@ const ProjectModal = ({ project, isOpen, onClose, theme }: ProjectModalProps) =>
 
                     {/* Content */}
                     <div className={`w-full md:w-1/3 p-8 md:p-10 flex flex-col ${theme === 'dark' ? 'text-white' : 'text-[#4A4A4A]'}`}>
-                        <div className="flex items-center gap-4 mb-6">
-                            <div className={`p-4 rounded-2xl border ${theme === 'dark' ? 'bg-white/5 border-white/10' : 'bg-[#EFE9E3] border-[#D9CFC7]'}`}>
-                                <project.icon size={28} className={project.color} />
-                            </div>
+                        <div className="flex flex-col mb-6">
                             <h2 className="text-3xl font-bold tracking-tight">{project.title}</h2>
                         </div>
 
@@ -501,15 +501,6 @@ export default function App() {
         return () => clearInterval(timer);
     }, []);
 
-    const handleContactSubmit = (e: React.FormEvent) => {
-        e.preventDefault();
-        setFormStatus("submitting");
-        setTimeout(() => {
-            setFormStatus("success");
-            setTimeout(() => setFormStatus("idle"), 3000);
-        }, 1500);
-    };
-
     const toggleTheme = () => setTheme(prev => prev === 'dark' ? 'light' : 'dark');
 
     // Colors based on theme
@@ -545,7 +536,7 @@ export default function App() {
                 </div>
 
                 {/* === SECTION 1: HERO & INTRO === */}
-                <div className="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-6 mb-6">
 
                     {/* PROFILE CARD */}
                     <Card className="col-span-1 md:col-span-2 row-span-2 min-h-[400px]" delay={0} theme={theme}>
@@ -637,7 +628,7 @@ export default function App() {
                 </div>
 
                 {/* === SECTION 2: WORK & EXPERIENCE === */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 h-[500px]">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 h-[500px] mb-6">
 
                     {/* EXPERIENCE TIMELINE */}
                     <Card className="col-span-1 md:col-span-1 row-span-2" delay={300} theme={theme} noPadding>
@@ -736,18 +727,21 @@ export default function App() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
 
                     {/* CLIENTS SAY (Fixed Scroll) */}
-                    <Card className="col-span-1 h-[350px]" delay={550} theme={theme} noPadding>
-                        <div className="flex flex-col h-full">
-                            {/* Header */}
-                            <div className="p-6 pb-2">
-                                <div className={`flex items-center gap-2 ${theme === 'dark' ? 'text-zinc-100' : 'text-[#4A4A4A]'}`}>
-                                    <Quote size={20} className="text-yellow-400 fill-yellow-400" />
-                                    <h3 className={`font-bold text-lg ${textMain}`}>What Clients Say</h3>
+                    <Card className="col-span-1 md:col-span-2 h-[400px]" delay={550} theme={theme} noPadding>
+                        <div className="flex flex-col md:flex-row h-full">
+                            {/* Left Side: Message */}
+                            <div className="w-full md:w-1/3 p-8 flex flex-col justify-center border-b md:border-b-0 md:border-r border-dashed border-opacity-20 border-gray-400">
+                                <div className="flex items-center gap-2 mb-4">
+                                    <Quote size={28} className="text-yellow-400 fill-yellow-400" />
                                 </div>
+                                <h3 className={`text-2xl font-bold mb-4 ${textMain}`}>Hear from the people I've worked with</h3>
+                                <p className={`text-sm ${textMuted}`}>
+                                    Trusted by clients worldwide for delivering exceptional AI and web development solutions.
+                                </p>
                             </div>
 
-                            {/* Scroll Area */}
-                            <div className="flex-1 overflow-y-auto custom-scrollbar px-6 pb-6 space-y-4">
+                            {/* Right Side: Reviews Scroll Area */}
+                            <div className="flex-1 overflow-y-auto custom-scrollbar p-6 space-y-4">
                                 {[
                                     { text: "Mubashir delivered the AI integration perfectly. His understanding of LLMs saved us weeks of research.", name: "Sarah Jenkins", role: "Tech Startup CEO", initials: "SJ", color: "from-blue-400 to-purple-400" },
                                     { text: "Excellent code quality on the React Native project. Very communicative and professional.", name: "David Miller", role: "Product Manager", initials: "DM", color: "from-orange-400 to-red-400" },
@@ -776,7 +770,7 @@ export default function App() {
                     </Card>
 
                     {/* GET IN TOUCH FORM */}
-                    <Card className="col-span-1 h-[350px]" delay={600} theme={theme}>
+                    <Card className="col-span-1 md:col-span-2 h-[450px]" delay={600} theme={theme}>
                         <div className="flex items-center gap-2 mb-6">
                             <Send size={20} className="text-green-500" />
                             <h3 className="font-bold text-lg">Get in Touch</h3>
@@ -791,10 +785,55 @@ export default function App() {
                                 <p className={`mt-2 ${textMuted}`}>I'll get back to you shortly.</p>
                             </div>
                         ) : (
-                            <form onSubmit={handleContactSubmit} className="space-y-4 flex flex-col h-[230px]">
-                                <div>
+                            <form
+                                onSubmit={async (e) => {
+                                    e.preventDefault();
+                                    setFormStatus("submitting");
+                                    const formData = new FormData(e.currentTarget);
+                                    const data = {
+                                        name: formData.get("name"),
+                                        email: formData.get("email"),
+                                        message: formData.get("message"),
+                                    };
+
+                                    try {
+                                        // REPLACE THIS URL WITH YOUR GOOGLE APPS SCRIPT WEB APP URL
+                                        const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbw8BXV5yIk2DeWSpV78ssRG-EfyYAzXQDzh7v_GJDjXUVcRlbn2l6uwNOQ85Powg7dpeg/exec";
+
+                                        await fetch(SCRIPT_URL, {
+                                            method: "POST",
+                                            mode: "no-cors", // Required for Apps Script Web App
+                                            headers: {
+                                                "Content-Type": "application/json",
+                                            },
+                                            body: JSON.stringify(data),
+                                        });
+
+                                        setFormStatus("success");
+                                        setTimeout(() => setFormStatus("idle"), 3000);
+                                    } catch (error) {
+                                        console.error("Error submitting form:", error);
+                                        setFormStatus("idle");
+                                        alert("Connection failed. Please use the social links while I fix this!");
+                                    }
+                                }}
+                                className="space-y-4 flex flex-col h-[280px]"
+                            >
+                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                    <input
+                                        type="text"
+                                        name="name"
+                                        required
+                                        placeholder="Your Name"
+                                        className={`w-full border rounded-xl px-4 py-3 text-sm focus:outline-none transition-all
+                                  ${theme === 'dark'
+                                                ? 'bg-black/20 border-white/10 text-white focus:border-blue-500/50 focus:bg-white/5'
+                                                : 'bg-[#F9F8F6] border-[#D9CFC7] text-[#4A4A4A] focus:border-[#C9B59C] focus:bg-white shadow-inner'}
+                                `}
+                                    />
                                     <input
                                         type="email"
+                                        name="email"
                                         required
                                         placeholder="Your Email"
                                         className={`w-full border rounded-xl px-4 py-3 text-sm focus:outline-none transition-all
@@ -806,6 +845,7 @@ export default function App() {
                                 </div>
                                 <div className="flex-1">
                                     <textarea
+                                        name="message"
                                         required
                                         placeholder="How can I help you?"
                                         className={`w-full h-full border rounded-xl px-4 py-3 text-sm focus:outline-none transition-all resize-none
