@@ -1,26 +1,33 @@
 const Experience = () => {
   const experiences = [
     {
-      period: "March 2022 – Present",
-      title: "Web and AI Chatbot Developer",
-      company: "Fiverr (Freelance)",
-      location: "Karachi, Pakistan",
+      period: "December 2025 - Present (3 months)",
+      title: "Full Stack Engineer",
+      company: "The Implant Engine",
+      location: "",
+      responsibilities: []
+    },
+    {
+      period: "May 2023 - Present (2 years 10 months)",
+      title: "Web & AI Chatbot Developer",
+      company: "Upwork",
+      location: "Karāchi, Sindh, Pakistan",
+      responsibilities: [
+        "Developed AI chatbots for various domains to automate business processes and improve customer interactions.",
+        "Fixed bugs and optimized chatbot performance to ensure seamless user experience.",
+        "Deployed SaaS solutions and MVPs to streamline operations and enhance efficiency."
+      ]
+    },
+    {
+      period: "March 2022 - Present (4 years)",
+      title: "AI Chatbot & Web Developer",
+      company: "Fiverr",
+      location: "Karāchi, Sindh, Pakistan",
       responsibilities: [
         "Developed SaaS applications using Next.js and MERN stack",
         "Built and deployed Telegram and Discord AI chatbots",
         "Integrated payment gateways (Cryptomus, Stripe) and custom chatbot interfaces",
         "Delivered scalable solutions deployed in Azure and Google Cloud"
-      ]
-    },
-    {
-      period: "2023 – Present",
-      title: "AI Engineer & Web developer",
-      company: "Upwork (Freelance)",
-      location: "Remote",
-      responsibilities: [
-        "Developed AI solutions for fraud (rug pull) detection and smart investment insights",
-        "Built RAG pipelines for enhanced AI capabilities",
-        "Developed and maintained multiple SaaS Chatbot Websites with real-time features"
       ]
     }
   ]
@@ -34,7 +41,7 @@ const Experience = () => {
             Building scalable solutions across multiple platforms
           </p>
         </div>
-        
+
         <div className="max-w-4xl mx-auto">
           <div className="space-y-8">
             {experiences.map((exp, index) => (
@@ -46,24 +53,26 @@ const Experience = () => {
                         {exp.period}
                       </div>
                     </div>
-                    
+
                     <div className="flex-1">
                       <h3 className="text-xl font-bold text-neutral-800 mb-2">{exp.title}</h3>
                       <h4 className="text-lg text-primary-500 font-semibold mb-1">{exp.company}</h4>
-                      <p className="text-neutral-600 mb-4">{exp.location}</p>
-                      
-                      <ul className="space-y-2">
-                        {exp.responsibilities.map((responsibility, idx) => (
-                          <li key={idx} className="flex items-start gap-3">
-                            <div className="w-2 h-2 bg-primary-500 rounded-full mt-2 flex-shrink-0"></div>
-                            <span className="text-neutral-600">{responsibility}</span>
-                          </li>
-                        ))}
-                      </ul>
+                      {exp.location && <p className="text-neutral-600 mb-4">{exp.location}</p>}
+
+                      {exp.responsibilities.length > 0 && (
+                        <ul className="space-y-2">
+                          {exp.responsibilities.map((responsibility, idx) => (
+                            <li key={idx} className="flex items-start gap-3">
+                              <div className="w-2 h-2 bg-primary-500 rounded-full mt-2 flex-shrink-0"></div>
+                              <span className="text-neutral-600">{responsibility}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
                     </div>
                   </div>
                 </div>
-                
+
                 {/* Timeline Line */}
                 {index < experiences.length - 1 && (
                   <div className="absolute left-6 top-full w-0.5 h-8 bg-gradient-primary"></div>

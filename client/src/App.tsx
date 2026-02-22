@@ -412,6 +412,26 @@ export default function App() {
     const [time, setTime] = useState<string>("");
     const [formStatus, setFormStatus] = useState<"idle" | "submitting" | "success">("idle");
     const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+    const [emailCopied, setEmailCopied] = useState(false);
+    const [reviewsData, setReviewsData] = useState<any[]>([]);
+    const contactRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        fetch('/reviews.json')
+            .then(res => res.json())
+            .then(data => setReviewsData(data))
+            .catch(err => console.error("Failed to fetch reviews:", err));
+    }, []);
+
+    const handleCopyEmail = () => {
+        navigator.clipboard.writeText("contact@mubashir.me");
+        setEmailCopied(true);
+        setTimeout(() => setEmailCopied(false), 2000);
+    };
+
+    const scrollToContact = () => {
+        contactRef.current?.scrollIntoView({ behavior: 'smooth' });
+    };
 
     // Projects Data
     const projects: Project[] = [
@@ -471,9 +491,9 @@ export default function App() {
         },
         {
             id: 4,
-            title: "TieTools Suite",
-            shortDesc: "A versatile suite of digital tools and utilities.",
-            longDescription: "TieTools is a CRM that integrates Google Ads, Meta Ads, and GoHighLevel data to create reporting and integrated data from all sources. It has tools for different needs of Account Managers, Quality Assurance, Media Buyers, and Content Operations. Includes specialized roles for Admins (Developer Admin, Owner) and Marketing Managers (B2B and B2C).",
+            title: "TIE Tools",
+            shortDesc: "CRM business intelligence platform that automates reporting.",
+            longDescription: "TIE Tools is a CRM business intelligence platform built for agencies. It automates reporting and integrates data from various sources (Google Ads, Meta Ads, GoHighLevel) to save employee time and allow the agency to run reporting on autopilot. The platform includes specialized tools for Account Managers, Quality Assurance, Media Buyers, and Content Operations.",
             image: "/portfolio/tietools/tools1.png",
             gallery: [
                 "/portfolio/tietools/tools2.png",
@@ -578,15 +598,19 @@ export default function App() {
                         </div>
 
                         <div className="pt-6 mt-auto flex flex-wrap gap-3">
-                            <button className={`flex items-center gap-2 px-6 py-3 rounded-full font-semibold transition-colors shadow-lg hover:scale-105 active:scale-95 duration-200
-                  ${theme === 'dark' ? 'bg-white text-black hover:bg-zinc-200' : 'bg-[#4A4A4A] text-[#F9F8F6] hover:bg-[#2D2D2D]'}
-              `}>
-                                Download CV <ArrowUpRight size={18} />
+                            <button
+                                onClick={scrollToContact}
+                                className={`flex items-center gap-2 px-6 py-3 rounded-full font-semibold transition-colors shadow-lg hover:scale-105 active:scale-95 duration-200
+                                  ${theme === 'dark' ? 'bg-white text-black hover:bg-zinc-200' : 'bg-[#4A4A4A] text-[#F9F8F6] hover:bg-[#2D2D2D]'}
+                              `}>
+                                Get in Touch <ArrowUpRight size={18} />
                             </button>
-                            <button className={`flex items-center gap-2 px-6 py-3 rounded-full font-semibold transition-colors border
-                  ${theme === 'dark' ? 'bg-white/5 text-white border-white/10 hover:bg-white/10' : 'bg-[#F9F8F6] text-[#4A4A4A] border-[#D9CFC7] hover:bg-white shadow-sm'}
-              `}>
-                                Copy Email
+                            <button
+                                onClick={handleCopyEmail}
+                                className={`flex items-center gap-2 px-6 py-3 rounded-full font-semibold transition-colors border
+                                  ${theme === 'dark' ? 'bg-white/5 text-white border-white/10 hover:bg-white/10' : 'bg-[#F9F8F6] text-[#4A4A4A] border-[#D9CFC7] hover:bg-white shadow-sm'}
+                              `}>
+                                {emailCopied ? "Copied!" : "Copy Email"}
                             </button>
                         </div>
                     </Card>
@@ -644,11 +668,9 @@ export default function App() {
                             <div className={`flex-1 overflow-y-auto custom-scrollbar px-6 pb-6`}>
                                 <div className={`relative border-l ml-2 space-y-8 py-2 ${theme === 'dark' ? 'border-white/10' : 'border-[#D9CFC7]'}`}>
                                     {[
-                                        { role: "Freelance AI Engineer", company: "Self-Employed", date: "2024 - Present", desc: "Building custom RAG pipelines and chatbots for international clients." },
-                                        { role: "Full Stack Developer", company: "Upwork / Remote", date: "2023 - 2024", desc: "Delivered 10+ web apps using React & Node.js." },
-                                        { role: "Open Source Contributor", company: "GitHub", date: "Ongoing", desc: "Active contributor to LangChain & Flutter community projects." },
-                                        { role: "Junior Developer", company: "Tech Solutions", date: "2022 - 2023", desc: "Assisted in frontend development using React." },
-                                        { role: "Intern", company: "Software House", date: "2022", desc: "Learned basics of MERN stack." }
+                                        { role: "Full Stack Engineer", company: "The Implant Engine", date: "Dec 2025 - Present", desc: "Developed custom SaaS and white-label marketplace apps. Built TIE Tools, a CRM business intelligence platform that automates reporting and saves employee time." },
+                                        { role: "Web & AI Chatbot Developer", company: "Upwork", date: "May 2023 - Present", desc: "Specialized in agentic solutions including custom MCP servers and intelligent bots. Built B2B/B2C SaaS platforms with a focus on intuitive UX and robust architecture." },
+                                        { role: "AI Chatbot & Web Developer", company: "Fiverr", date: "Mar 2022 - Present", desc: "Created UX-friendly AI apps, custom CRM tools, and scalable B2B/B2C SaaS websites for diverse global clients." }
                                     ].map((job, i) => (
                                         <div key={i} className="relative pl-8 group/item">
                                             <div className={`absolute -left-[5px] top-1.5 w-2.5 h-2.5 rounded-full border transition-colors 
@@ -729,7 +751,7 @@ export default function App() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
 
                     {/* CLIENTS SAY (Fixed Scroll) */}
-                    <Card className="col-span-1 md:col-span-2 h-[400px]" delay={550} theme={theme} noPadding>
+                    <Card className="col-span-1 md:col-span-2 h-[550px] md:h-[400px] landscape:h-[500px]" delay={550} theme={theme} noPadding>
                         <div className="flex flex-col md:flex-row h-full">
                             {/* Left Side: Message */}
                             <div className="w-full md:w-1/3 p-8 flex flex-col justify-center border-b md:border-b-0 md:border-r border-dashed border-opacity-20 border-gray-400">
@@ -744,133 +766,147 @@ export default function App() {
 
                             {/* Right Side: Reviews Scroll Area */}
                             <div className="flex-1 overflow-y-auto custom-scrollbar p-6 space-y-4">
-                                {[
-                                    { text: "Mubashir delivered the AI integration perfectly. His understanding of LLMs saved us weeks of research.", name: "Sarah Jenkins", role: "Tech Startup CEO", initials: "SJ", color: "from-blue-400 to-purple-400" },
-                                    { text: "Excellent code quality on the React Native project. Very communicative and professional.", name: "David Miller", role: "Product Manager", initials: "DM", color: "from-orange-400 to-red-400" },
-                                    { text: "One of the best developers I've worked with on Upwork. Highly recommended for full-stack tasks.", name: "Alex Lee", role: "Founder, WebFlows", initials: "AL", color: "from-green-400 to-teal-400" },
-                                    { text: "Fantastic eye for design and performance. The dashboard he built is incredibly fast.", name: "Emily Chen", role: "CTO, DataCorp", initials: "EC", color: "from-pink-400 to-rose-400" }
-                                ].map((review, i) => (
-                                    <div key={i} className={`p-5 rounded-2xl border relative group transition-colors 
+                                {reviewsData.map((review, i) => {
+                                    const colors = [
+                                        "from-blue-400 to-purple-400",
+                                        "from-orange-400 to-red-400",
+                                        "from-green-400 to-teal-400",
+                                        "from-pink-400 to-rose-400"
+                                    ];
+                                    const color = colors[i % colors.length];
+                                    const initials = review.name ? review.name.substring(0, 2).toUpperCase() : "U";
+
+                                    return (
+                                        <div key={i} className={`p-5 rounded-2xl border relative group transition-colors 
                                    ${theme === 'dark'
-                                            ? 'bg-white/5 border-white/5 hover:bg-white/10'
-                                            : 'bg-[#F9F8F6] border-[#D9CFC7] hover:bg-white'}`}>
-                                        <div className="flex gap-1 mb-2">
-                                            {[1, 2, 3, 4, 5].map(s => <Star key={s} size={12} className="text-yellow-500 fill-yellow-500" />)}
-                                        </div>
-                                        <p className={`text-sm italic mb-3 leading-relaxed ${theme === 'dark' ? 'text-zinc-300' : 'text-[#6e6760]'}`}>"{review.text}"</p>
-                                        <div className="flex items-center gap-3">
-                                            <div className={`w-8 h-8 rounded-full bg-gradient-to-r ${review.color} flex items-center justify-center text-xs font-bold text-white`}>{review.initials}</div>
-                                            <div>
-                                                <div className={`text-xs font-bold ${theme === 'dark' ? 'text-white' : 'text-[#4A4A4A]'}`}>{review.name}</div>
-                                                <div className={`text-[10px] uppercase tracking-wide ${textMuted}`}>{review.role}</div>
+                                                ? 'bg-white/5 border-white/5 hover:bg-white/10'
+                                                : 'bg-[#F9F8F6] border-[#D9CFC7] hover:bg-white'}`}>
+                                            <div className="flex gap-1 mb-2">
+                                                {[1, 2, 3, 4, 5].map(s => <Star key={s} size={12} className="text-yellow-500 fill-yellow-500" />)}
+                                            </div>
+                                            <p className={`text-sm italic mb-3 leading-relaxed ${theme === 'dark' ? 'text-zinc-300' : 'text-[#6e6760]'}`}>"{review.text}"</p>
+                                            <div className="flex items-center gap-3">
+                                                {review.avatar ? (
+                                                    <img src={review.avatar} alt={review.name} className="w-8 h-8 rounded-full object-cover shadow-sm" />
+                                                ) : (
+                                                    <div className={`w-8 h-8 rounded-full bg-gradient-to-r ${color} flex items-center justify-center text-xs font-bold text-white shadow-sm`}>
+                                                        {initials}
+                                                    </div>
+                                                )}
+                                                <div>
+                                                    <div className={`text-xs font-bold ${theme === 'dark' ? 'text-white' : 'text-[#4A4A4A]'}`}>{review.name}</div>
+                                                    <div className={`text-[10px] uppercase tracking-wide ${textMuted}`}>{review.country}</div>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                ))}
+                                    );
+                                })}
                             </div>
                         </div>
                     </Card>
 
                     {/* GET IN TOUCH FORM */}
-                    <Card className="col-span-1 md:col-span-2 h-[450px]" delay={600} theme={theme}>
-                        <div className="flex items-center gap-2 mb-6">
-                            <Send size={20} className="text-green-500" />
-                            <h3 className="font-bold text-lg">Get in Touch</h3>
-                        </div>
-
-                        {formStatus === 'success' ? (
-                            <div className="h-full flex flex-col items-center justify-center text-center animate-pulse">
-                                <div className="w-16 h-16 bg-green-500/20 rounded-full flex items-center justify-center mb-4 text-green-500">
-                                    <Send size={32} />
-                                </div>
-                                <h4 className="text-xl font-bold">Message Sent!</h4>
-                                <p className={`mt-2 ${textMuted}`}>I'll get back to you shortly.</p>
+                    <div ref={contactRef} className="col-span-1 md:col-span-2">
+                        <Card className="h-[450px]" delay={600} theme={theme}>
+                            <div className="flex items-center gap-2 mb-6">
+                                <Send size={20} className="text-green-500" />
+                                <h3 className="font-bold text-lg">Get in Touch</h3>
                             </div>
-                        ) : (
-                            <form
-                                onSubmit={async (e) => {
-                                    e.preventDefault();
-                                    setFormStatus("submitting");
-                                    const formData = new FormData(e.currentTarget);
-                                    const data = {
-                                        name: formData.get("name"),
-                                        email: formData.get("email"),
-                                        message: formData.get("message"),
-                                    };
 
-                                    try {
-                                        // REPLACE THIS URL WITH YOUR GOOGLE APPS SCRIPT WEB APP URL
-                                        const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbw8BXV5yIk2DeWSpV78ssRG-EfyYAzXQDzh7v_GJDjXUVcRlbn2l6uwNOQ85Powg7dpeg/exec";
-
-                                        await fetch(SCRIPT_URL, {
-                                            method: "POST",
-                                            mode: "no-cors", // Required for Apps Script Web App
-                                            headers: {
-                                                "Content-Type": "application/json",
-                                            },
-                                            body: JSON.stringify(data),
-                                        });
-
-                                        setFormStatus("success");
-                                        setTimeout(() => setFormStatus("idle"), 3000);
-                                    } catch (error) {
-                                        console.error("Error submitting form:", error);
-                                        setFormStatus("idle");
-                                        alert("Connection failed. Please use the social links while I fix this!");
-                                    }
-                                }}
-                                className="space-y-4 flex flex-col h-[280px]"
-                            >
-                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                                    <input
-                                        type="text"
-                                        name="name"
-                                        required
-                                        placeholder="Your Name"
-                                        className={`w-full border rounded-xl px-4 py-3 text-sm focus:outline-none transition-all
-                                  ${theme === 'dark'
-                                                ? 'bg-black/20 border-white/10 text-white focus:border-blue-500/50 focus:bg-white/5'
-                                                : 'bg-[#F9F8F6] border-[#D9CFC7] text-[#4A4A4A] focus:border-[#C9B59C] focus:bg-white shadow-inner'}
-                                `}
-                                    />
-                                    <input
-                                        type="email"
-                                        name="email"
-                                        required
-                                        placeholder="Your Email"
-                                        className={`w-full border rounded-xl px-4 py-3 text-sm focus:outline-none transition-all
-                                  ${theme === 'dark'
-                                                ? 'bg-black/20 border-white/10 text-white focus:border-blue-500/50 focus:bg-white/5'
-                                                : 'bg-[#F9F8F6] border-[#D9CFC7] text-[#4A4A4A] focus:border-[#C9B59C] focus:bg-white shadow-inner'}
-                                `}
-                                    />
+                            {formStatus === 'success' ? (
+                                <div className="h-full flex flex-col items-center justify-center text-center animate-pulse">
+                                    <div className="w-16 h-16 bg-green-500/20 rounded-full flex items-center justify-center mb-4 text-green-500">
+                                        <Send size={32} />
+                                    </div>
+                                    <h4 className="text-xl font-bold">Message Sent!</h4>
+                                    <p className={`mt-2 ${textMuted}`}>I'll get back to you shortly.</p>
                                 </div>
-                                <div className="flex-1">
-                                    <textarea
-                                        name="message"
-                                        required
-                                        placeholder="How can I help you?"
-                                        className={`w-full h-full border rounded-xl px-4 py-3 text-sm focus:outline-none transition-all resize-none
-                                  ${theme === 'dark'
-                                                ? 'bg-black/20 border-white/10 text-white focus:border-blue-500/50 focus:bg-white/5'
-                                                : 'bg-[#F9F8F6] border-[#D9CFC7] text-[#4A4A4A] focus:border-[#C9B59C] focus:bg-white shadow-inner'}
-                                `}
-                                    />
-                                </div>
-                                <button
-                                    disabled={formStatus === 'submitting'}
-                                    className={`w-full font-bold py-3 rounded-xl transition-colors flex items-center justify-center gap-2 disabled:opacity-50
-                              ${theme === 'dark'
-                                            ? 'bg-white text-black hover:bg-zinc-200'
-                                            : 'bg-[#4A4A4A] text-[#F9F8F6] hover:bg-[#2D2D2D]'}
-                            `}
+                            ) : (
+                                <form
+                                    onSubmit={async (e) => {
+                                        e.preventDefault();
+                                        setFormStatus("submitting");
+                                        const formData = new FormData(e.currentTarget);
+                                        const data = {
+                                            name: formData.get("name"),
+                                            email: formData.get("email"),
+                                            message: formData.get("message"),
+                                        };
+
+                                        try {
+                                            // REPLACE THIS URL WITH YOUR GOOGLE APPS SCRIPT WEB APP URL
+                                            const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbw8BXV5yIk2DeWSpV78ssRG-EfyYAzXQDzh7v_GJDjXUVcRlbn2l6uwNOQ85Powg7dpeg/exec";
+
+                                            await fetch(SCRIPT_URL, {
+                                                method: "POST",
+                                                mode: "no-cors", // Required for Apps Script Web App
+                                                headers: {
+                                                    "Content-Type": "application/json",
+                                                },
+                                                body: JSON.stringify(data),
+                                            });
+
+                                            setFormStatus("success");
+                                            setTimeout(() => setFormStatus("idle"), 3000);
+                                        } catch (error) {
+                                            console.error("Error submitting form:", error);
+                                            setFormStatus("idle");
+                                            alert("Connection failed. Please use the social links while I fix this!");
+                                        }
+                                    }}
+                                    className="space-y-4 flex flex-col h-[280px]"
                                 >
-                                    {formStatus === 'submitting' ? 'Sending...' : 'Send Message'}
-                                    {formStatus === 'idle' && <Send size={16} />}
-                                </button>
-                            </form>
-                        )}
-                    </Card>
+                                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                        <input
+                                            type="text"
+                                            name="name"
+                                            required
+                                            placeholder="Your Name"
+                                            className={`w-full border rounded-xl px-4 py-3 text-sm focus:outline-none transition-all
+                                  ${theme === 'dark'
+                                                    ? 'bg-black/20 border-white/10 text-white focus:border-blue-500/50 focus:bg-white/5'
+                                                    : 'bg-[#F9F8F6] border-[#D9CFC7] text-[#4A4A4A] focus:border-[#C9B59C] focus:bg-white shadow-inner'}
+                                `}
+                                        />
+                                        <input
+                                            type="email"
+                                            name="email"
+                                            required
+                                            placeholder="Your Email"
+                                            className={`w-full border rounded-xl px-4 py-3 text-sm focus:outline-none transition-all
+                                  ${theme === 'dark'
+                                                    ? 'bg-black/20 border-white/10 text-white focus:border-blue-500/50 focus:bg-white/5'
+                                                    : 'bg-[#F9F8F6] border-[#D9CFC7] text-[#4A4A4A] focus:border-[#C9B59C] focus:bg-white shadow-inner'}
+                                `}
+                                        />
+                                    </div>
+                                    <div className="flex-1">
+                                        <textarea
+                                            name="message"
+                                            required
+                                            placeholder="How can I help you?"
+                                            className={`w-full h-full border rounded-xl px-4 py-3 text-sm focus:outline-none transition-all resize-none
+                                  ${theme === 'dark'
+                                                    ? 'bg-black/20 border-white/10 text-white focus:border-blue-500/50 focus:bg-white/5'
+                                                    : 'bg-[#F9F8F6] border-[#D9CFC7] text-[#4A4A4A] focus:border-[#C9B59C] focus:bg-white shadow-inner'}
+                                `}
+                                        />
+                                    </div>
+                                    <button
+                                        disabled={formStatus === 'submitting'}
+                                        className={`w-full font-bold py-3 rounded-xl transition-colors flex items-center justify-center gap-2 disabled:opacity-50
+                              ${theme === 'dark'
+                                                ? 'bg-white text-black hover:bg-zinc-200'
+                                                : 'bg-[#4A4A4A] text-[#F9F8F6] hover:bg-[#2D2D2D]'}
+                            `}
+                                    >
+                                        {formStatus === 'submitting' ? 'Sending...' : 'Send Message'}
+                                        {formStatus === 'idle' && <Send size={16} />}
+                                    </button>
+                                </form>
+                            )}
+                        </Card>
+                    </div>
                 </div>
 
                 {/* FOOTER */}
