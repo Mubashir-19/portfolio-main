@@ -1,0 +1,136 @@
+\documentclass[10pt,a4paper,sans]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[margin=0.4in, top=0.4in, bottom=0.4in]{geometry}
+\usepackage[hidelinks]{hyperref}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{fontawesome5}
+\usepackage{multicol}
+
+% --- COLORS ---
+\definecolor{primary}{HTML}{2E5077} % Elegant Navy Blue
+\definecolor{secondary}{HTML}{4A628A} % Lighter Slate
+\definecolor{text}{HTML}{333333}    % Soft Black
+
+% --- FONTS ---
+\usepackage[default]{sourcesanspro}
+
+% --- SECTION FORMATTING ---
+\titleformat{\section}
+  {\large\bfseries\color{primary}\uppercase}
+  {}{0em}
+  {}[\vspace{-1.2ex}\rule{\textwidth}{1pt}]
+\titlespacing*{\section}{0pt}{1.2ex}{0.6ex}
+
+% --- CUSTOM COMMANDS ---
+\newcommand{\entry}[4]{
+  \noindent\textbf{#1} \hfill \textbf{\color{secondary}#2} \\
+  \textit{#3} \hfill \textit{#4} \par
+  \vspace{0.1ex}
+}
+
+\newcommand{\project}[2]{
+  \noindent\textbf{#1} \hfill \textit{#2} \par
+  \vspace{0.1ex}
+}
+
+\begin{document}
+\pagestyle{empty}
+\color{text}
+
+% --- HEADER ---
+\begin{center}
+    {\Huge \textbf{\color{primary}Mubashir Ahmed}} \\
+    \vspace{0.5ex}
+    {\large \textbf{Full Stack Web Developer \& AI Solutions Architect}} \\
+    \vspace{1ex}
+    \small
+    \faMapMarker* { Karachi, Pakistan} \quad $|$ \quad
+    \faPhone* { +92-3378063440} \quad $|$ \quad
+    \href{mailto:contact@mubashir.me}{\faEnvelope { contact@mubashir.me}} \quad $|$ \quad
+    \href{https://mubashir.me}{\faGlobe { mubashir.me}} \quad $|$ \quad
+    \href{https://linkedin.com/in/mubashirahmed23}{\faLinkedin { linkedin.com/in/mubashirahmed23}}
+\end{center}
+
+\vspace{-0.5ex}
+
+% --- SUMMARY ---
+\section*{Summary}
+Results-driven Software Engineer with 4+ years of experience designing and deploying scalable web applications and AI-powered systems. Specialized in the intersection of full-stack engineering and applied artificial intelligence, with a focus on production-ready LLM solutions and RAG architectures. Proven track record of automating business processes and building cost-optimized, intelligent systems.
+
+% --- EXPERIENCE ---
+\section*{Experience}
+
+\entry{Full Stack Engineer}{The Implant Engine}{Dec 2025 -- Present}{Remote}
+\begin{itemize}[leftmargin=*, noitemsep, topsep=0pt]
+    \item Developed custom SaaS and white-label marketplace apps for healthcare automation.
+    \item Built TIE Tools, a CRM business intelligence platform that automates reporting and saves employee time through intelligent data aggregation.
+\end{itemize}
+
+\vspace{1.5ex}
+
+\entry{Web \& AI Chatbot Developer}{Upwork}{May 2023 -- Present}{Freelance}
+\begin{itemize}[leftmargin=*, noitemsep, topsep=0pt]
+    \item Engineered agentic solutions including custom MCP servers and intelligent autonomous bots.
+    \item Designed and built B2B/B2C SaaS platforms with a focus on intuitive UX and robust architecture.
+\end{itemize}
+
+\vspace{1.5ex}
+
+\entry{AI Chatbot \& Web Developer}{Fiverr}{Mar 2022 -- Present}{Freelance}
+\begin{itemize}[leftmargin=*, noitemsep, topsep=0pt]
+    \item Created UX-friendly AI apps, custom CRM tools, and scalable SaaS websites for diverse global clients.
+\end{itemize}
+
+% --- SELECTED PROJECTS ---
+\section*{Selected Projects}
+
+\project{TIE Tools (CRM Business Intelligence Platform)}{Automated Reporting System}
+\begin{itemize}[leftmargin=*, noitemsep, topsep=0pt]
+    \item Engineered a platform built for organizations to automate reporting by integrating data from various sources (Google Ads, Meta Ads, GoHighLevel).
+    \item Developed specialized tools for Account Managers, Quality Assurance, and Media Buyers to run reporting on autopilot.
+\end{itemize}
+
+\vspace{1.5ex}
+
+\project{Funnel2Tunnel: Maritime Domain Expert Chatbot}{Next.js, Langchain, Pinecone, AWS}
+\begin{itemize}[leftmargin=*, noitemsep, topsep=0pt]
+    \item Developed a SaaS trained on 800+ maritime documents with OCR scanning and multichat capabilities.
+    \item Optimized cost-effective context management and vector embedding pipelines.
+\end{itemize}
+
+\vspace{1.5ex}
+
+\project{Chat with SQL: A Text-to-SQL AI Chatbot}{Gemma 3 1B, PostgreSQL, Chroma}
+\begin{itemize}[leftmargin=*, noitemsep, topsep=0pt]
+    \item Locally deployable pipeline enabling natural language interaction with PostgreSQL databases.
+    \item Implemented cost-effective prompt engineering and efficient conversation history management.
+\end{itemize}
+
+% --- CORE EXPERTISE & SKILLS ---
+\section*{Core Expertise}
+\begin{itemize}[leftmargin=*, noitemsep, topsep=0.1ex]
+    \item \textbf{B2B/B2C SaaS \& Platform Engineering:} Architecting scalable, robust B2B and B2C SaaS platforms and custom white-label marketplace applications.
+    \item \textbf{Advanced AI \& Agentic Solutions:} Developing intelligent bots, custom MCP servers, and multi-context RAG architectures for autonomous, real-time workflows.
+    \item \textbf{Business Intelligence \& CRM Automation:} Building custom CRM platforms (like TIE Tools) that integrate multi-source marketing data to fully automate reporting and systemize operations.
+    \item \textbf{Full-Stack \& Cloud Deployment:} Delivering cost-optimized, end-to-end solutions utilizing Next.js, the MERN stack, vector databases, and modern cloud infrastructure (GCP, AWS, Azure).
+\end{itemize}
+\vspace{0.5ex}
+\noindent \textbf{Technical Skills:} JavaScript, Python, Dart, SQL, React, Node.js, MongoDB, PostgreSQL, Pinecone, Docker, Git.
+
+% --- EDUCATION ---
+\section*{Education}
+\entry{Sindh Madressatul Islam University (SMIU)}{Karachi, Pakistan}{Bachelor of Science in Computer Science $|$ GPA: 3.4}{Aug 2021 -- Jun 2025}
+
+% --- CERTIFICATIONS ---
+\section*{Certifications \& Awards}
+\begin{itemize}[leftmargin=*, noitemsep, topsep=0pt]
+    \item \faGithub { GitHub Foundations (2024) \& GitHub Starstruck Badge}
+    \item \faGraduationCap { LangChain Chat with Your Data - DeepLearning.AI}
+    \item \faCertificate { Intermediate Node.js Certificate - HackerRank}
+    \item \faTrophy { Falcon Hackathon Certificate \& Web Scraping in Python}
+\end{itemize}
+
+\end{document}

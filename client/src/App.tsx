@@ -22,7 +22,8 @@ import {
     Layers,
     Globe,
     Zap,
-    LayoutDashboard
+    LayoutDashboard,
+    Download
 } from 'lucide-react';
 
 // --- TYPES ---
@@ -612,6 +613,14 @@ export default function App() {
                               `}>
                                 {emailCopied ? "Copied!" : "Copy Email"}
                             </button>
+                            <a
+                                href="/resume/mubashir-resume.pdf"
+                                download="Mubashir_Ahmed_Resume.pdf"
+                                className={`flex items-center gap-2 px-6 py-3 rounded-full font-semibold transition-colors border
+                                  ${theme === 'dark' ? 'bg-white/5 text-white border-white/10 hover:bg-white/10' : 'bg-[#F9F8F6] text-[#4A4A4A] border-[#D9CFC7] hover:bg-white shadow-sm'}
+                              `}>
+                                Download Resume <Download size={18} />
+                            </a>
                         </div>
                     </Card>
 
